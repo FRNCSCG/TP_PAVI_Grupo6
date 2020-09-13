@@ -41,6 +41,8 @@ namespace TP_Login_Versiones
                 pantPrinc.ShowDialog();
                 this.Close();
             }
+            
+            
             //USER = new USUARIO(TB_USUARIO.Text, TB_CONTRASEÑA.Text);
 
             //bool var = conexion.VALIDAR_USUARIO(TB_USUARIO.Text, TB_CONTRASEÑA.Text);

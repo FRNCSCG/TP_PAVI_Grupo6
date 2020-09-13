@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP_Login_Versiones.Forms;
 
 namespace TP_Login_Versiones
 {
@@ -16,7 +17,7 @@ namespace TP_Login_Versiones
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_logueo());
+            Application.Run(new frmCursos());
         }
     }
 }
