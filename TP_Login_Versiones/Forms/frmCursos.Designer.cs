@@ -41,6 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdCursos = new System.Windows.Forms.DataGridView();
+            this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFechaVigencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
@@ -48,10 +52,6 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFechaVigencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -154,6 +154,8 @@
             // 
             // grdCursos
             // 
+            this.grdCursos.AllowUserToAddRows = false;
+            this.grdCursos.AllowUserToDeleteRows = false;
             this.grdCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmIdCurso,
@@ -162,9 +164,35 @@
             this.clmFechaVigencia});
             this.grdCursos.Location = new System.Drawing.Point(77, 273);
             this.grdCursos.Name = "grdCursos";
+            this.grdCursos.ReadOnly = true;
             this.grdCursos.Size = new System.Drawing.Size(833, 217);
             this.grdCursos.TabIndex = 12;
             this.grdCursos.SelectionChanged += new System.EventHandler(this.grdCursos_SelectionChanged);
+            // 
+            // clmIdCurso
+            // 
+            this.clmIdCurso.HeaderText = "Id Curso";
+            this.clmIdCurso.Name = "clmIdCurso";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmCategoria
+            // 
+            this.clmCategoria.HeaderText = "Categoría";
+            this.clmCategoria.MinimumWidth = 8;
+            this.clmCategoria.Name = "clmCategoria";
+            this.clmCategoria.Width = 200;
+            // 
+            // clmFechaVigencia
+            // 
+            this.clmFechaVigencia.FillWeight = 160F;
+            this.clmFechaVigencia.HeaderText = "Fecha Vigencia";
+            this.clmFechaVigencia.Name = "clmFechaVigencia";
+            this.clmFechaVigencia.Width = 160;
             // 
             // btnSalir
             // 
@@ -239,31 +267,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // clmIdCurso
-            // 
-            this.clmIdCurso.HeaderText = "Id Curso";
-            this.clmIdCurso.Name = "clmIdCurso";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // clmCategoria
-            // 
-            this.clmCategoria.HeaderText = "Categoría";
-            this.clmCategoria.MinimumWidth = 8;
-            this.clmCategoria.Name = "clmCategoria";
-            this.clmCategoria.Width = 200;
-            // 
-            // clmFechaVigencia
-            // 
-            this.clmFechaVigencia.FillWeight = 160F;
-            this.clmFechaVigencia.HeaderText = "Fecha Vigencia";
-            this.clmFechaVigencia.Name = "clmFechaVigencia";
-            this.clmFechaVigencia.Width = 160;
             // 
             // dataGridView1
             // 

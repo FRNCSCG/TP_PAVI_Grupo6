@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP_Login_Versiones.Class;
 
 namespace TP_Login_Versiones.Forms
 {
@@ -16,25 +17,24 @@ namespace TP_Login_Versiones.Forms
         {
             InitializeComponent();
         }
-        //Datos oBD = new Datos();
-        //Usuario oCurso = new Curso;
+        Conexion oBD = new Conexion();
+        Curso oCurso = new Curso();
         
         bool nuevo = false;
 
         private void frmCursos_Load(object sender, EventArgs e)
         {
             this.habilitar(false);
-            //bool nuevo = false;
             txtIdCurso.Enabled = false;
 
             DataTable tabla = new DataTable();
-            //tabla = oBD.consultarTabla("categorias");
+            tabla = oBD.consultarTabla("categorias");
             cboCategoria.DataSource = tabla;
-            //cboCategoria.DisplayMember = tabla.Columns[1].ColumnName;
-            //cboCategoria.ValueMember = tabla.Columns[0].ColumnName;
+            cboCategoria.DisplayMember = tabla.Columns[1].ColumnName;
+            cboCategoria.ValueMember = tabla.Columns[0].ColumnName;
             cboCategoria.SelectedIndex = -1;
 
-            //generarGrilla(grdCursos, oUsuario.recuperarCursos());
+            generarGrilla(grdCursos, oCurso.recuperarCursos());
            
 
 
@@ -44,6 +44,11 @@ namespace TP_Login_Versiones.Forms
         private void generarGrilla(DataGridView grilla, DataTable tabla)
         {
             grilla.Rows.Clear();
+            if (tabla.Rows.Count ==0)
+            {
+                MessageBox.Show("no hay nada");
+
+            }
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 grilla.Rows.Add(tabla.Rows[i]["id_curso"],
@@ -90,6 +95,30 @@ namespace TP_Login_Versiones.Forms
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            oCurso.Nombre = txtNombre.Text;
+            oCurso.Descripcion = txtDescripcion.Text;
+            oCurso.Fecha_vigencia = dtpFechaVigencia.Value;
+            oCurso.Id_categoria = cboCategoria.SelectedIndex;
+            if (this.nuevo)
+            {
+                if (!oCurso.existe())
+                {
+                    oCurso.Borrado1 = 0;
+                    //oCurso.grabarUsuario();   //Insert
+                }
+                else
+                    MessageBox.Show("Usuario existente!!!");
+            }
+            else
+            {
+                oCurso.Id_curso = int.Parse(txtIdCurso.Text);
+                //oCurso.actualizarCurso();   //Update
+            }
+
+            generarGrilla(grdCursos, oCurso.recuperarCursos());
+
+            MessageBox.Show("El usuario se grabó con éxito!!!");
+
             this.habilitar(false);
             this.nuevo = false;
         }
@@ -122,7 +151,7 @@ namespace TP_Login_Versiones.Forms
                                 == DialogResult.Yes)
             {
 
-                //metodoBorrar
+                //oCurso.BorrarCurso();   //Delete
 
 
             }
@@ -130,14 +159,13 @@ namespace TP_Login_Versiones.Forms
 
         private void grdCursos_SelectionChanged(object sender, EventArgs e)
         {
-            //this.actualizarCampos((int)grdCursos.CurrentRow.Cells[0].Value);
-
+            this.actualizarCampos((int)grdCursos.CurrentRow.Cells[0].Value);
         }
 
         private void actualizarCampos(int id)
         {
             DataTable tabla = new DataTable();
-            //tabla = oUsuario.recuperarCursoPorId(id);
+            tabla = oCurso.recuperarCursoPorId(id);
             txtIdCurso.Text = tabla.Rows[0]["id_curso"].ToString();
             txtNombre.Text = tabla.Rows[0]["nombre"].ToString();
             txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
