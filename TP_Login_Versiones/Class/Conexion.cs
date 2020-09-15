@@ -13,6 +13,7 @@ namespace TP_Login_Versiones.Class
     {
         private SqlConnection conexion = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["CadenaDB"]);
         private SqlCommand comando = new SqlCommand();
+        
 
         
 
@@ -85,15 +86,7 @@ namespace TP_Login_Versiones.Class
         }
 
 
-
-
-
-
-
-
-
-
-
+               
         public bool VALIDAR_USUARIO(string usuario, string password)
         {
            
@@ -116,6 +109,96 @@ namespace TP_Login_Versiones.Class
                 MessageBox.Show("Usuario y/o contraseña incorrecto");
                 return false;
             }
+        }
+
+        public void CARGAR_CURSO(int Id,string Nombre,string Descripcion,DateTime Vigencia,int Categoria,int Borrado)
+        {
+            try
+            {
+                string consulta = "Insert into cursos values(@ID,@NOMBRE,@DESCRIPCION,@VIGENCIA,@CATEGORIA,@BORRADO)";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRE", Nombre );
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion  );
+                comando.Parameters.AddWithValue("@VIGENCIA", Vigencia );
+                comando.Parameters.AddWithValue("@CATEGORIA", Categoria );
+                comando.Parameters.AddWithValue("@BORRADO", Borrado );
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al registrar curso");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
+        public void ACTUALIZAR_CURSO(int Id, string Nombre, string Descripcion, DateTime Vigencia, int Categoria)
+        {
+            try
+            {
+                string consulta = "update cursos set nombre=@NOMBRE, descripcion=@DESCRIPCION, fecha_vigencia=@VIGENCIA, id_categoria=@CATEGORIA where id_curso=@ID";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRE", Nombre);
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion );
+                comando.Parameters.AddWithValue("@VIGENCIA", Vigencia);
+                comando.Parameters.AddWithValue("@CATEGORIA", Categoria);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al actualizar curso");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
+        public void ELIMINAR_CURSO(int Id)
+        {
+            try
+            {
+                string consulta = "DELETE FROM cursos where id_curso=@ID";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al eliminar curso");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
         }
     }
 }
