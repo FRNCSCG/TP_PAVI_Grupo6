@@ -10,6 +10,7 @@ namespace TP_Login_Versiones.Class
 {
     class Curso
     {
+        Conexion oDato = new Conexion();
 
         private int id_curso;
         private string nombre;
@@ -18,42 +19,61 @@ namespace TP_Login_Versiones.Class
         private int id_categoria;
         private int borrado;
 
-        public Curso(int id_curso, string nombre, string descripcion, DateTime fecha_vigencia, int id_categoria, int borrado)
+        public int Id_curso { get => id_curso; set => id_curso = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
+        public DateTime Fecha_vigencia { get => fecha_vigencia; set => fecha_vigencia = value; }
+        public int Id_categoria { get => id_categoria; set => id_categoria = value; }
+        public int Borrado { get => borrado; set => borrado = value; }
+
+        public DataTable recuperarCursos()
         {
-            this.id_curso = id_curso;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.fecha_vigencia = fecha_vigencia;
-            this.id_categoria = id_categoria;
-            this.borrado = borrado;
+            return oDato.consultarTabla("Cursos");
+        
+        }
+        
+        public DataTable recuperarCursoPorId(int id)
+        {
+            return oDato.consultar("SELECT * FROM cursos WHERE id_curso=" + id);
         }
 
-        public int Id_curso {
-            get => id_curso;
-            set => id_curso = value; }
+        public bool validarDatosCurso(object Curso)
+        {
 
-        public string Nombre {
-            get => nombre;
-            set => nombre = value; }
 
-        public string Descripcion {
-            get => descripcion;
-            set => descripcion = value; }
+            if (this.nombre == string.Empty)
+            {
+                MessageBox.Show("El nombre está vacío.");
+                return false;
+            }
 
-        public DateTime Fecha_vigencia {
-            get => fecha_vigencia;
-            set => fecha_vigencia = value; }
+            if (this.descripcion == string.Empty)
+            {
+                MessageBox.Show("No hay descrpcion.");
+                return false;
+            }
 
-        public int Id_categoria {
-            get => id_categoria;
-            set => id_categoria = value; }
+            if (this.id_categoria == -1)
+            {
+                MessageBox.Show("Seleccione categoria");
+                return false;
+            }
 
-        public int Borrado {
-            get => borrado;
-            set => borrado = value; }
+            return true;
 
-              
-                    
+        }
+
+        public bool existe()
+        {
+            DataTable tabla = new DataTable();
+            tabla = oDato.consultar("SELECT * FROM cursos WHERE nombre='" + this.nombre + "'");
+            if (tabla.Rows.Count == 0)
+                return false;
+            else
+                return true;
+        }
+
+
 
     }
 }   

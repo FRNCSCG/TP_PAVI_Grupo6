@@ -13,7 +13,6 @@ namespace TP_Login_Versiones.Class
     {
         private SqlConnection conexion = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["CadenaDB"]);
         private SqlCommand comando = new SqlCommand();
-        
 
         
 
@@ -66,6 +65,7 @@ namespace TP_Login_Versiones.Class
             this.DESCONECTAR();
             return tabla;
         }
+        
         public DataTable consultarTabla(string nombreTabla)
         {
 
@@ -77,16 +77,9 @@ namespace TP_Login_Versiones.Class
             return tabla;
 
         }
-        public void actualizar(string consultaSQL)
-        {
-            this.CONECTAR();
-            this.comando.CommandText = consultaSQL;
-            this.comando.ExecuteNonQuery();
-            this.DESCONECTAR();
-        }
 
 
-               
+
         public bool VALIDAR_USUARIO(string usuario, string password)
         {
            
@@ -111,7 +104,9 @@ namespace TP_Login_Versiones.Class
             }
         }
 
-        public void CARGAR_CURSO(int Id,string Nombre,string Descripcion,DateTime Vigencia,int Categoria,int Borrado)
+
+
+        public void CARGAR_CURSO(int Id, string Nombre, string Descripcion, DateTime Vigencia, int Categoria, int Borrado)
         {
             try
             {
@@ -119,11 +114,11 @@ namespace TP_Login_Versiones.Class
 
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
-                comando.Parameters.AddWithValue("@NOMBRE", Nombre );
-                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion  );
-                comando.Parameters.AddWithValue("@VIGENCIA", Vigencia );
-                comando.Parameters.AddWithValue("@CATEGORIA", Categoria );
-                comando.Parameters.AddWithValue("@BORRADO", Borrado );
+                comando.Parameters.AddWithValue("@NOMBRE", Nombre);
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion);
+                comando.Parameters.AddWithValue("@VIGENCIA", Vigencia);
+                comando.Parameters.AddWithValue("@CATEGORIA", Categoria);
+                comando.Parameters.AddWithValue("@BORRADO", Borrado);
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = consulta;
 
@@ -143,6 +138,7 @@ namespace TP_Login_Versiones.Class
 
         }
 
+
         public void ACTUALIZAR_CURSO(int Id, string Nombre, string Descripcion, DateTime Vigencia, int Categoria)
         {
             try
@@ -152,7 +148,7 @@ namespace TP_Login_Versiones.Class
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
                 comando.Parameters.AddWithValue("@NOMBRE", Nombre);
-                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion );
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion);
                 comando.Parameters.AddWithValue("@VIGENCIA", Vigencia);
                 comando.Parameters.AddWithValue("@CATEGORIA", Categoria);
                 comando.CommandType = CommandType.Text;
@@ -178,8 +174,7 @@ namespace TP_Login_Versiones.Class
         {
             try
             {
-                string consulta = "DELETE FROM cursos where id_curso=@ID";
-
+                string consulta = "update cursos set borrado='1' where id_curso=@ID";
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
                 comando.CommandType = CommandType.Text;

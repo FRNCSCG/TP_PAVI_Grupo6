@@ -41,6 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdCursos = new System.Windows.Forms.DataGridView();
+            this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFechaVigencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
@@ -153,13 +157,42 @@
             this.grdCursos.AllowUserToAddRows = false;
             this.grdCursos.AllowUserToDeleteRows = false;
             this.grdCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmIdCurso,
+            this.clmNombre,
+            this.clmCategoria,
+            this.clmFechaVigencia});
             this.grdCursos.Location = new System.Drawing.Point(77, 273);
             this.grdCursos.Name = "grdCursos";
             this.grdCursos.ReadOnly = true;
-            this.grdCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCursos.Size = new System.Drawing.Size(833, 217);
             this.grdCursos.TabIndex = 12;
-            this.grdCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCursos_CellClick);
+            this.grdCursos.SelectionChanged += new System.EventHandler(this.grdCursos_SelectionChanged);
+            // 
+            // clmIdCurso
+            // 
+            this.clmIdCurso.HeaderText = "Id Curso";
+            this.clmIdCurso.Name = "clmIdCurso";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmCategoria
+            // 
+            this.clmCategoria.HeaderText = "Categoría";
+            this.clmCategoria.MinimumWidth = 8;
+            this.clmCategoria.Name = "clmCategoria";
+            this.clmCategoria.Width = 200;
+            // 
+            // clmFechaVigencia
+            // 
+            this.clmFechaVigencia.FillWeight = 160F;
+            this.clmFechaVigencia.HeaderText = "Fecha Vigencia";
+            this.clmFechaVigencia.Name = "clmFechaVigencia";
+            this.clmFechaVigencia.Width = 160;
             // 
             // btnSalir
             // 
@@ -179,6 +212,7 @@
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGrabar
             // 
@@ -188,6 +222,7 @@
             this.btnGrabar.TabIndex = 15;
             this.btnGrabar.Text = "Guardar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnEditar
             // 
@@ -299,6 +334,10 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmIdCurso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFechaVigencia;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
