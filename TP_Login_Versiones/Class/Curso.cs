@@ -26,52 +26,10 @@ namespace TP_Login_Versiones.Class
         public int Id_categoria { get => id_categoria; set => id_categoria = value; }
         public int Borrado { get => borrado; set => borrado = value; }
 
-        public DataTable recuperarCursos()
-        {
-            return oDato.consultarTabla("Cursos");
         
-        }
+
+
         
-        public DataTable recuperarCursoPorId(int id)
-        {
-            return oDato.consultar("SELECT * FROM cursos WHERE id_curso=" + id);
-        }
-
-        public bool validarDatosCurso(object Curso)
-        {
-
-
-            if (this.nombre == string.Empty)
-            {
-                MessageBox.Show("El nombre está vacío.");
-                return false;
-            }
-
-            if (this.descripcion == string.Empty)
-            {
-                MessageBox.Show("No hay descrpcion.");
-                return false;
-            }
-
-            if (this.id_categoria == -1)
-            {
-                MessageBox.Show("Seleccione categoria");
-                return false;
-            }
-
-            return true;
-
-        }
-
-        public bool existe()
-        {
-            DataTable tabla = new DataTable();
-            tabla = oDato.consultar("SELECT * FROM cursos WHERE nombre='" + this.nombre + "'");
-            if (tabla.Rows.Count == 0)
-                return false;
-            else
-                return true;
-        }
 
 
 

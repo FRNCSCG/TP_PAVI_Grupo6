@@ -79,7 +79,6 @@ namespace TP_Login_Versiones.Class
         }
 
 
-
         public bool VALIDAR_USUARIO(string usuario, string password)
         {
            

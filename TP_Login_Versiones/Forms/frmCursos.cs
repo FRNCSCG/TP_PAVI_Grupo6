@@ -17,6 +17,7 @@ namespace TP_Login_Versiones.Forms
         {
             InitializeComponent();
         }
+        
         Conexion oBD = new Conexion();
         Curso oCurso = new Curso();
         
@@ -26,66 +27,20 @@ namespace TP_Login_Versiones.Forms
         {
             this.habilitar(false);
             txtIdCurso.Enabled = false;
-
-            DataTable tabla = new DataTable();
-            tabla = oBD.consultarTabla("categorias");
-            cboCategoria.DataSource = tabla;
-            cboCategoria.DisplayMember = tabla.Columns[1].ColumnName;
-            cboCategoria.ValueMember = tabla.Columns[0].ColumnName;
-            cboCategoria.SelectedIndex = -1;
-
-            generarGrilla(grdCursos, oCurso.recuperarCursos());
-           
-
-
-
+            cargarCombo("categorias");
+            generarGrilla(grdCursos, oBD.consultarTabla("Cursos"));
         }
 
-        private void generarGrilla(DataGridView grilla, DataTable tabla)
-        {
-            grilla.Rows.Clear();
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                grilla.Rows.Add(tabla.Rows[i]["id_curso"],
-                                tabla.Rows[i]["nombre"],
-                                tabla.Rows[i]["id_categoria"],
-                                tabla.Rows[i]["fecha_vigencia"]);
-            }
-        }
 
-        private void habilitar(bool x)
-        {
-            txtIdCurso.Enabled = x;
-            txtNombre.Enabled = x;
-            txtDescripcion.Enabled = x;
-            dtpFechaVigencia.Enabled = x;
-            cboCategoria.Enabled = x;
-            btnGrabar.Enabled = x;
-            btnCancelar.Enabled = x;
-            btnNuevo.Enabled = !x;
-            btnEditar.Enabled = !x;
-            btnBorrar.Enabled = !x;
-            btnSalir.Enabled = !x;
-            grdCursos.Enabled = !x;
-        }
 
-        private void limpiar()
-        {
-            txtIdCurso.Clear();
-            txtNombre.Clear();
-            txtDescripcion.Clear();
-            cboCategoria.SelectedIndex = -1;
-            dtpFechaVigencia.Value = DateTime.Today;
-
-        }
+        //botones
+        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.nuevo = true;
             this.habilitar(true);
             this.limpiar();
             this.txtIdCurso.Focus();
-            btnEditar.Enabled = false;
-            btnBorrar.Enabled = false;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -97,12 +52,11 @@ namespace TP_Login_Versiones.Forms
             oCurso.Id_categoria = cboCategoria.SelectedIndex;
             if (this.nuevo)
             {
-                if (!oCurso.existe())
+                if (!existe())
                 {
-                    if (oCurso.validarDatosCurso(oCurso))
+                    if (validarDatosCurso(oCurso))
                     {
                         oCurso.Borrado = 0;
-                        oCurso.validarDatosCurso(oCurso);
                         oBD.CARGAR_CURSO(oCurso.Id_curso,oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria,oCurso.Borrado);
                         MessageBox.Show("El curso se grabó con éxito!");
                     }
@@ -112,7 +66,7 @@ namespace TP_Login_Versiones.Forms
             }
             else
             {
-                if (oCurso.validarDatosCurso(oCurso))
+                if (validarDatosCurso(oCurso))
                 {
                     oCurso.Id_curso = int.Parse(txtIdCurso.Text);
                     oBD.ACTUALIZAR_CURSO(oCurso.Id_curso, oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria);
@@ -120,10 +74,9 @@ namespace TP_Login_Versiones.Forms
                 }
             }
 
-            generarGrilla(grdCursos, oCurso.recuperarCursos());
+            generarGrilla(grdCursos, oBD.consultarTabla("Cursos"));
 
-            
-
+    
             this.habilitar(false);
             this.nuevo = false;
         }
@@ -157,13 +110,71 @@ namespace TP_Login_Versiones.Forms
                                 == DialogResult.Yes)
             {
                 oBD.ELIMINAR_CURSO(int.Parse(txtIdCurso.Text));
-                generarGrilla(grdCursos, oCurso.recuperarCursos());
+                generarGrilla(grdCursos, oBD.consultarTabla("Cursos"));
 
 
             }
         }
 
-        private void grdCursos_SelectionChanged(object sender, EventArgs e)
+
+
+
+        //funciones
+
+        private void generarGrilla(DataGridView grilla, DataTable tabla)
+        {
+            grilla.Rows.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                grilla.Rows.Add(tabla.Rows[i]["id_curso"],
+                                tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["id_categoria"],
+                                tabla.Rows[i]["fecha_vigencia"]);
+            }
+        }
+
+
+        private void habilitar(bool x)
+        {
+            txtIdCurso.Enabled = x;
+            txtNombre.Enabled = x;
+            txtDescripcion.Enabled = x;
+            dtpFechaVigencia.Enabled = x;
+            cboCategoria.Enabled = x;
+            btnGrabar.Enabled = x;
+            btnCancelar.Enabled = x;
+            btnNuevo.Enabled = !x;
+            btnEditar.Enabled = !x;
+            btnBorrar.Enabled = !x;
+            btnSalir.Enabled = !x;
+            grdCursos.Enabled = !x;
+        }
+
+
+        private void limpiar()
+        {
+            txtIdCurso.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            cboCategoria.SelectedIndex = -1;
+            dtpFechaVigencia.Value = DateTime.Today;
+
+        }
+
+
+        private void cargarCombo(string nombreTabla)
+        {
+            DataTable tabla = new DataTable();
+            tabla = oBD.consultarTabla(nombreTabla);
+            cboCategoria.DataSource = tabla;
+            cboCategoria.DisplayMember = tabla.Columns[1].ColumnName;
+            cboCategoria.ValueMember = tabla.Columns[0].ColumnName;
+            cboCategoria.SelectedIndex = -1;
+        }
+
+
+
+        private void grdCursos_SelectionChanged(object sender, EventArgs e)   
         {
             this.actualizarCampos((int)grdCursos.CurrentRow.Cells[0].Value);
         }
@@ -171,7 +182,8 @@ namespace TP_Login_Versiones.Forms
         private void actualizarCampos(int id)
         {
             DataTable tabla = new DataTable();
-            tabla = oCurso.recuperarCursoPorId(id);
+            tabla = oBD.consultar("SELECT * FROM cursos WHERE id_curso=" + id);
+            
             txtIdCurso.Text = tabla.Rows[0]["id_curso"].ToString();
             txtNombre.Text = tabla.Rows[0]["nombre"].ToString();
             txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
@@ -181,14 +193,46 @@ namespace TP_Login_Versiones.Forms
         }
 
 
+        private bool existe()
+        {
+            DataTable tabla = new DataTable();
+            tabla = oBD.consultar("SELECT * FROM cursos WHERE nombre='" + oCurso.Nombre + "'");
+            if (tabla.Rows.Count == 0)
+                return false;
+            else
+                return true;
+        }
+
+
+        private bool validarDatosCurso(object Curso)
+        {
+
+
+            if (oCurso.Nombre == string.Empty)
+            {
+                MessageBox.Show("El nombre está vacío.");
+                return false;
+            }
+
+            if (oCurso.Descripcion == string.Empty)
+            {
+                MessageBox.Show("No hay descrpcion.");
+                return false;
+            }
+
+            if (oCurso.Id_categoria == -1)
+            {
+                MessageBox.Show("Seleccione categoria");
+                return false;
+            }
+
+            return true;
+
+        }
 
 
 
-
-
-
-
-}
+    }
 
 
 }
