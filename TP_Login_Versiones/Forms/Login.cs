@@ -39,7 +39,7 @@ namespace TP_Login_Versiones
             {
                 Principal pantPrinc = new Principal();
                 pantPrinc.ShowDialog();
-                this.Close();
+               
             }
             
             

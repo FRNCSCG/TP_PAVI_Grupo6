@@ -17,7 +17,7 @@ namespace TP_Login_Versiones
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCursos());
+            Application.Run(new frm_logueo());
         }
     }
 }

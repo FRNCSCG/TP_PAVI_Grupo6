@@ -67,40 +67,45 @@ namespace TP_Login_Versiones.Class
         }
         
         public DataTable consultarTabla(string nombreTabla)
-        {
-
-            DataTable tabla = new DataTable();
-            this.CONECTAR();
-            this.comando.CommandText = "Select * from " + nombreTabla + " WHERE borrado=0";
-            tabla.Load(this.comando.ExecuteReader());
-            this.DESCONECTAR();
-            return tabla;
-
+        {            
+                DataTable tabla = new DataTable();
+                CONECTAR();
+                comando.CommandText = "Select * from " + nombreTabla + " WHERE borrado=0";
+                tabla.Load(comando.ExecuteReader());
+                DESCONECTAR();
+                return tabla;
         }
 
 
         public bool VALIDAR_USUARIO(string usuario, string password)
         {
-           
-            comando.CommandText = "SELECT * FROM USUARIOS WHERE USUARIO='" + usuario + "' AND PASSWORD='" + password + "'";
-
-            CONECTAR();
-            DataTable table = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(comando);
-            da.Fill(table);
-
-            DESCONECTAR();
-
-            if (table.Rows.Count == 1)
+            try
             {
-                MessageBox.Show("Inicio de sesion correcto");
-                return true;
+                comando.CommandText = "SELECT * FROM USUARIOS WHERE USUARIO='" + usuario + "' AND PASSWORD='" + password + "'";
+
+                CONECTAR();
+                DataTable table = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(comando);
+                da.Fill(table);
+
+                DESCONECTAR();
+
+                if (table.Rows.Count == 1)
+                {
+                    MessageBox.Show("Inicio de sesion correcto");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrecto");
+                    return false;
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Usuario y/o contraseña incorrecto");
                 return false;
             }
+            
         }
 
 

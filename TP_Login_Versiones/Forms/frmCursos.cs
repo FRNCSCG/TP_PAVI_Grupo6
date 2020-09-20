@@ -33,7 +33,7 @@ namespace TP_Login_Versiones.Forms
 
 
 
-        //botones
+        //BOTONES
         
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -97,6 +97,8 @@ namespace TP_Login_Versiones.Forms
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            Principal pantPrincipal = new Principal();
+            pantPrincipal.Show();
         }
 
 
@@ -119,7 +121,7 @@ namespace TP_Login_Versiones.Forms
 
 
 
-        //funciones
+        //FUNCIONES
 
         private void generarGrilla(DataGridView grilla, DataTable tabla)
         {

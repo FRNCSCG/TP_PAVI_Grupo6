@@ -111,6 +111,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_aceptar);
             this.Name = "frm_logueo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesion";
             this.Load += new System.EventHandler(this.frm_logueo_Load);
             this.groupBox1.ResumeLayout(false);

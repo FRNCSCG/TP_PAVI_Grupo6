@@ -16,5 +16,12 @@ namespace TP_Login_Versiones.Forms
         {
             InitializeComponent();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCursos PantCursos=new frmCursos();
+            PantCursos.Show();
+            this.Hide();
+        }
     }
 }

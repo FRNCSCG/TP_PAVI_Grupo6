@@ -173,18 +173,21 @@
             // 
             this.clmIdCurso.HeaderText = "Id Curso";
             this.clmIdCurso.Name = "clmIdCurso";
+            this.clmIdCurso.ReadOnly = true;
             // 
             // clmNombre
             // 
             this.clmNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clmNombre.HeaderText = "Nombre";
             this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
             // 
             // clmCategoria
             // 
             this.clmCategoria.HeaderText = "Categoría";
             this.clmCategoria.MinimumWidth = 8;
             this.clmCategoria.Name = "clmCategoria";
+            this.clmCategoria.ReadOnly = true;
             this.clmCategoria.Width = 200;
             // 
             // clmFechaVigencia
@@ -192,6 +195,7 @@
             this.clmFechaVigencia.FillWeight = 160F;
             this.clmFechaVigencia.HeaderText = "Fecha Vigencia";
             this.clmFechaVigencia.Name = "clmFechaVigencia";
+            this.clmFechaVigencia.ReadOnly = true;
             this.clmFechaVigencia.Width = 160;
             // 
             // btnSalir
@@ -303,6 +307,7 @@
             this.Controls.Add(this.txtIdCurso);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmCursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.frmCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdCursos)).EndInit();
