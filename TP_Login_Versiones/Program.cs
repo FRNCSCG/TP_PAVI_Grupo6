@@ -16,7 +16,7 @@ namespace TP_Login_Versiones
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false);            
             Application.Run(new frm_logueo());
         }
     }
