@@ -31,11 +31,11 @@
             this.grdObjetivos = new System.Windows.Forms.DataGridView();
             this.lblNombreCorto = new System.Windows.Forms.Label();
             this.lblNombreObjetivo = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreLargo = new System.Windows.Forms.TextBox();
             this.lblIdCurso = new System.Windows.Forms.Label();
-            this.txtIdCurso = new System.Windows.Forms.TextBox();
+            this.txtIdObjetivo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreAbrev = new System.Windows.Forms.TextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -82,12 +82,12 @@
             this.lblNombreObjetivo.TabIndex = 17;
             this.lblNombreObjetivo.Text = "Nombre";
             // 
-            // txtNombre
+            // txtNombreLargo
             // 
-            this.txtNombre.Location = new System.Drawing.Point(62, 97);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(129, 20);
-            this.txtNombre.TabIndex = 15;
+            this.txtNombreLargo.Location = new System.Drawing.Point(62, 97);
+            this.txtNombreLargo.Name = "txtNombreLargo";
+            this.txtNombreLargo.Size = new System.Drawing.Size(129, 20);
+            this.txtNombreLargo.TabIndex = 15;
             // 
             // lblIdCurso
             // 
@@ -98,12 +98,12 @@
             this.lblIdCurso.TabIndex = 14;
             this.lblIdCurso.Text = "Id";
             // 
-            // txtIdCurso
+            // txtIdObjetivo
             // 
-            this.txtIdCurso.Location = new System.Drawing.Point(34, 60);
-            this.txtIdCurso.Name = "txtIdCurso";
-            this.txtIdCurso.Size = new System.Drawing.Size(157, 20);
-            this.txtIdCurso.TabIndex = 13;
+            this.txtIdObjetivo.Location = new System.Drawing.Point(34, 60);
+            this.txtIdObjetivo.Name = "txtIdObjetivo";
+            this.txtIdObjetivo.Size = new System.Drawing.Size(157, 20);
+            this.txtIdObjetivo.TabIndex = 13;
             // 
             // dataGridView1
             // 
@@ -114,12 +114,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(453, 55);
             this.dataGridView1.TabIndex = 20;
             // 
-            // textBox1
+            // txtNombreAbrev
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 21;
+            this.txtNombreAbrev.Location = new System.Drawing.Point(115, 133);
+            this.txtNombreAbrev.Name = "txtNombreAbrev";
+            this.txtNombreAbrev.Size = new System.Drawing.Size(76, 20);
+            this.txtNombreAbrev.TabIndex = 21;
             // 
             // btnBorrar
             // 
@@ -130,6 +130,7 @@
             this.btnBorrar.Size = new System.Drawing.Size(50, 50);
             this.btnBorrar.TabIndex = 27;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnEditar
             // 
@@ -140,6 +141,7 @@
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 26;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -150,6 +152,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(50, 50);
             this.btnNuevo.TabIndex = 25;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGrabar
             // 
@@ -159,6 +162,7 @@
             this.btnGrabar.TabIndex = 24;
             this.btnGrabar.Text = "Guardar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnCancelar
             // 
@@ -177,6 +181,7 @@
             this.btnSalir.TabIndex = 22;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // clmIdObjetivo
             // 
@@ -212,14 +217,14 @@
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombreAbrev);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.grdObjetivos);
             this.Controls.Add(this.lblNombreCorto);
             this.Controls.Add(this.lblNombreObjetivo);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtNombreLargo);
             this.Controls.Add(this.lblIdCurso);
-            this.Controls.Add(this.txtIdCurso);
+            this.Controls.Add(this.txtIdObjetivo);
             this.Name = "Objetivos";
             this.Text = "Objetivos";
             this.Load += new System.EventHandler(this.Objetivos_Load);
@@ -235,11 +240,11 @@
         private System.Windows.Forms.DataGridView grdObjetivos;
         private System.Windows.Forms.Label lblNombreCorto;
         private System.Windows.Forms.Label lblNombreObjetivo;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombreLargo;
         private System.Windows.Forms.Label lblIdCurso;
-        private System.Windows.Forms.TextBox txtIdCurso;
+        private System.Windows.Forms.TextBox txtIdObjetivo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreAbrev;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;

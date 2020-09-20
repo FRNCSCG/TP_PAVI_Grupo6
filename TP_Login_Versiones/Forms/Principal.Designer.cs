@@ -76,6 +76,7 @@
             this.objertivosToolStripMenuItem.Name = "objertivosToolStripMenuItem";
             this.objertivosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.objertivosToolStripMenuItem.Text = "Objetivos";
+            this.objertivosToolStripMenuItem.Click += new System.EventHandler(this.objertivosToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 

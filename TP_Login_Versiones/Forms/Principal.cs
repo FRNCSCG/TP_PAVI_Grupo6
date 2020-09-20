@@ -23,6 +23,12 @@ namespace TP_Login_Versiones.Forms
             PantCursos.Show();
             this.Hide();
         }
-                
+
+        private void objertivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Objetivos pantObjetivos = new Objetivos();
+            pantObjetivos.Show();
+            this.Hide();
+        }
     }
 }
