@@ -56,9 +56,17 @@ namespace TP_Login_Versiones.Forms
                 {
                     if (validarDatosCurso(oCurso))
                     {
-                        oCurso.Borrado = 0;
-                        oBD.CARGAR_CURSO(oCurso.Id_curso,oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria,oCurso.Borrado);
-                        MessageBox.Show("El curso se grabó con éxito!");
+                        try
+                        {
+                            oCurso.Borrado = 0;
+                            oBD.CARGAR_CURSO(oCurso.Id_curso, oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria, oCurso.Borrado);
+                            MessageBox.Show("El curso se grabó con éxito!");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error al registrar curso");
+                        }
+                        
                     }
                 }
                 else
@@ -68,9 +76,17 @@ namespace TP_Login_Versiones.Forms
             {
                 if (validarDatosCurso(oCurso))
                 {
-                    oCurso.Id_curso = int.Parse(txtIdCurso.Text);
-                    oBD.ACTUALIZAR_CURSO(oCurso.Id_curso, oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria);
-                    MessageBox.Show("El curso se grabó con éxito!");
+                    try
+                    {
+                        oCurso.Id_curso = int.Parse(txtIdCurso.Text);
+                        oBD.ACTUALIZAR_CURSO(oCurso.Id_curso, oCurso.Nombre, oCurso.Descripcion, oCurso.Fecha_vigencia, oCurso.Id_categoria);
+                        MessageBox.Show("El curso se grabó con éxito!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al actualizar curso");
+                    }
+                    
                 }
             }
 
@@ -111,7 +127,7 @@ namespace TP_Login_Versiones.Forms
                                 MessageBoxDefaultButton.Button2)
                                 == DialogResult.Yes)
             {
-                oBD.ELIMINAR_CURSO(int.Parse(txtIdCurso.Text));
+                oBD.ELIMINAR("cursos",int.Parse(txtIdCurso.Text));
                 generarGrilla(grdCursos, oBD.consultarTabla("Cursos"));
 
 

@@ -23,5 +23,6 @@ namespace TP_Login_Versiones.Forms
             PantCursos.Show();
             this.Hide();
         }
+                
     }
 }

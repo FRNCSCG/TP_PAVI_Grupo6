@@ -56,8 +56,7 @@ namespace TP_Login_Versiones.Class
 
         public DataTable consultar(string consultaSQL)
         {
-
-
+            
             DataTable tabla = new DataTable();
             this.CONECTAR();
             this.comando.CommandText = consultaSQL;
@@ -174,11 +173,11 @@ namespace TP_Login_Versiones.Class
 
         }
 
-        public void ELIMINAR_CURSO(int Id)
+        public void ELIMINAR(string nombreTabla,int Id)
         {
             try
             {
-                string consulta = "update cursos set borrado='1' where id_curso=@ID";
+                string consulta = "update "+nombreTabla +" set borrado='1' where id_curso=@ID";
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
                 comando.CommandType = CommandType.Text;
@@ -191,6 +190,65 @@ namespace TP_Login_Versiones.Class
             catch
             {
                 MessageBox.Show("Error al eliminar curso");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+        
+        public void CARGAR_OBJETIVO(int Id, string NombreLargo, string NombreCorto, int Borrado)
+        {
+            try
+            {
+                string consulta = "Insert into objetivos values(@ID,@NOMBRELARGO,@NOMBRECORTO,@BORRADO)";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRELARGO", NombreLargo);
+                comando.Parameters.AddWithValue("@NOMBRECORTO", NombreCorto);                
+                comando.Parameters.AddWithValue("@BORRADO", Borrado);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al registrar objetivo");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
+        public void ACTUALIZAR_OBJETIVO(int Id, string NombreLargo, string NombreCorto)
+        {
+            try
+            {
+                string consulta = "update objetivos set nombre_largo=@NOMBRELARGO, nombre_corto=@NOMBRECORTO where id_objetivo=@ID";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRELARGO", NombreLargo);
+                comando.Parameters.AddWithValue("@NOMBRECORTO", NombreCorto);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al actualizar curso");
 
             }
             finally
