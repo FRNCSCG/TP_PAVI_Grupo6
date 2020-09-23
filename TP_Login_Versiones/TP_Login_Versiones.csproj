@@ -47,10 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Categoria.cs" />
     <Compile Include="Class\Conexion.cs" />
     <Compile Include="Class\Curso.cs" />
     <Compile Include="Class\Objetivo.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="Forms\Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCursos.resx">
       <DependentUpon>frmCursos.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telefono-movil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\backend.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -127,7 +127,7 @@ namespace TP_Login_Versiones.Forms
                                 MessageBoxDefaultButton.Button2)
                                 == DialogResult.Yes)
             {
-                oBD.ELIMINAR("cursos",int.Parse(txtIdCurso.Text));
+                oBD.ELIMINAR_CURSO(int.Parse(txtIdCurso.Text));
                 generarGrilla(grdCursos, oBD.consultarTabla("Cursos"));
 
 

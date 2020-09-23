@@ -83,6 +83,7 @@
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
             this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.categoriasToolStripMenuItem.Text = "Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // Principal
             // 

@@ -63,6 +63,16 @@ namespace TP_Login_Versiones.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backend {
+            get {
+                object obj = ResourceManager.GetObject("backend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap borrar {
             get {
                 object obj = ResourceManager.GetObject("borrar", resourceCulture);
@@ -86,6 +96,16 @@ namespace TP_Login_Versiones.Properties {
         internal static System.Drawing.Bitmap nuevo {
             get {
                 object obj = ResourceManager.GetObject("nuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap telefono_movil {
+            get {
+                object obj = ResourceManager.GetObject("telefono-movil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

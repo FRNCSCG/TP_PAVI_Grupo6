@@ -26,7 +26,7 @@ namespace TP_Login_Versiones.Forms
         private void Objetivos_Load(object sender, EventArgs e)
         {
             this.habilitar(false);
-            generarGrilla(grdObjetivos, oBD.consultarTabla("Cursos"));
+            generarGrilla(grdObjetivos, oBD.consultarTabla("Objetivos"));
         }
 
         private void generarGrilla(DataGridView grilla, DataTable tabla)
@@ -40,7 +40,7 @@ namespace TP_Login_Versiones.Forms
             }
         }
 
-        private void grdCursos_SelectionChanged(object sender, EventArgs e)
+        private void grdObjetivos_SelectionChanged(object sender, EventArgs e)
         {
             this.actualizarCampos((int)grdObjetivos.CurrentRow.Cells[0].Value);
         }
@@ -48,11 +48,11 @@ namespace TP_Login_Versiones.Forms
         private void actualizarCampos(int id)
         {
             DataTable tabla = new DataTable();
-            tabla = oBD.consultar("SELECT * FROM objetivos WHERE id_curso=" + id);
+            tabla = oBD.consultar("SELECT * FROM objetivos WHERE id_objetivo=" + id);
 
-            txtIdObjetivo .Text = tabla.Rows[0]["id_objetivo"].ToString();
+            txtIdObjetivo.Text = tabla.Rows[0]["id_objetivo"].ToString();
             txtNombreLargo.Text = tabla.Rows[0]["nombre_largo"].ToString();
-            txtNombreAbrev .Text = tabla.Rows[0]["nombre_corto"].ToString();
+            txtNombreAbrev.Text = tabla.Rows[0]["nombre_corto"].ToString();
 
         }
 
@@ -65,8 +65,8 @@ namespace TP_Login_Versiones.Forms
                                 MessageBoxDefaultButton.Button2)
                                 == DialogResult.Yes)
             {
-                oBD.ELIMINAR("objetivos", int.Parse(txtIdObjetivo .Text));
-                generarGrilla(grdObjetivos , oBD.consultarTabla("Cursos"));
+                oBD.ELIMINAR_OBJETIVO(int.Parse(txtIdObjetivo .Text));
+                generarGrilla(grdObjetivos , oBD.consultarTabla("Objetivos"));
 
 
             }
@@ -202,5 +202,13 @@ namespace TP_Login_Versiones.Forms
             Principal pantPrincipal = new Principal();
             pantPrincipal.Show();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.habilitar(false);
+            this.nuevo = false;
+        }
+
+
     }
 }

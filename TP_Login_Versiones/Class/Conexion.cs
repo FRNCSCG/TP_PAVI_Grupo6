@@ -173,11 +173,11 @@ namespace TP_Login_Versiones.Class
 
         }
 
-        public void ELIMINAR(string nombreTabla,int Id)
+        public void ELIMINAR_CURSO(int Id)
         {
             try
             {
-                string consulta = "update "+nombreTabla +" set borrado='1' where id_curso=@ID";
+                string consulta = "update cursos set borrado='1' where id_curso=@ID";
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
                 comando.CommandType = CommandType.Text;
@@ -198,12 +198,65 @@ namespace TP_Login_Versiones.Class
             }
 
         }
-        
+
+        public void ELIMINAR_OBJETIVO(int Id)
+        {
+            try
+            {
+                string consulta = "update objetivos set borrado='1' where id_objetivo=@ID";
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al eliminar curso");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
+
+        public void ELIMINAR_CATEGORIA(int Id)
+        {
+            try
+            {
+                string consulta = "update categorias set borrado='1' where id_categoria=@ID";
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al eliminar categoria");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
         public void CARGAR_OBJETIVO(int Id, string NombreLargo, string NombreCorto, int Borrado)
         {
             try
             {
-                string consulta = "Insert into objetivos values(@ID,@NOMBRELARGO,@NOMBRECORTO,@BORRADO)";
+                string consulta = "Insert into objetivos values(@ID,@NOMBRECORTO,@NOMBRELARGO,@BORRADO)";
 
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@ID", Id);
@@ -220,6 +273,36 @@ namespace TP_Login_Versiones.Class
             catch
             {
                 MessageBox.Show("Error al registrar objetivo");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
+
+        public void CARGAR_CATEGORIA(int Id, string Nombre, string Descripcion, int Borrado)
+        {
+            try
+            {
+                string consulta = "Insert into categorias values(@ID,@NOMBRE,@DESCRIPCION,@BORRADO)";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRE", Nombre);
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion);
+                comando.Parameters.AddWithValue("@BORRADO", Borrado);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al registrar categoria");
 
             }
             finally
@@ -257,5 +340,36 @@ namespace TP_Login_Versiones.Class
             }
 
         }
+
+
+        public void ACTUALIZAR_CATEGORIA(int Id, string Nombre, string Descripcion)
+        {
+            try
+            {
+                string consulta = "update categorias set nombre=@NOMBRE, descripcion=@DESCRIPCION where id_categoria=@ID";
+
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@ID", Id);
+                comando.Parameters.AddWithValue("@NOMBRE", Nombre);
+                comando.Parameters.AddWithValue("@DESCRIPCION", Descripcion);
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+
+                CONECTAR();
+                comando.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error al actualizar categoria");
+
+            }
+            finally
+            {
+                DESCONECTAR();
+            }
+
+        }
     }
 }
+

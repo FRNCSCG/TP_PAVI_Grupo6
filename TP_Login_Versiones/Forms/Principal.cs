@@ -30,5 +30,12 @@ namespace TP_Login_Versiones.Forms
             pantObjetivos.Show();
             this.Hide();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Categorias pantCategorias = new Categorias();
+            pantCategorias.Show();
+            this.Hide();
+        }
     }
 }
