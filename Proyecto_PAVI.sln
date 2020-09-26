@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto_PAVI", "Proyecto_PAVI\Proyecto_PAVI.csproj", "{1CCF212A-D898-4DA7-B3F4-F20D461F3C9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CCF212A-D898-4DA7-B3F4-F20D461F3C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCF212A-D898-4DA7-B3F4-F20D461F3C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCF212A-D898-4DA7-B3F4-F20D461F3C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCF212A-D898-4DA7-B3F4-F20D461F3C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E3A15E8-A91B-41FB-8C98-716DAD635C3B}
+	EndGlobalSection
+EndGlobal
