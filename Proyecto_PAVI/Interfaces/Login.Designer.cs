@@ -1,4 +1,6 @@
-﻿namespace Proyecto_PAVI.Interfaces
+﻿using System.Windows.Forms;
+
+namespace Proyecto_PAVI.Interfaces
 {
     partial class Login
     {
@@ -127,6 +129,11 @@
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void Login_KeyDown1(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
