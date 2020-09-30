@@ -50,10 +50,5 @@ namespace Proyecto_PAVI.Interfaces
                 }
             }
         }
-
-
-
-
-
     }
 }

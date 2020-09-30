@@ -131,7 +131,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(463, 429);
+            this.btnSalir.Location = new System.Drawing.Point(468, 429);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 38;
@@ -241,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 463);
+            this.ClientSize = new System.Drawing.Size(550, 459);
             this.Controls.Add(this.dgvObjetivos);
             this.Controls.Add(this.tituloAbmObjetivo);
             this.Controls.Add(this.pictureBox1);
@@ -259,7 +259,6 @@
             this.Controls.Add(this.lblIdCurso);
             this.Controls.Add(this.txtIdObjetivo);
             this.Name = "Objetivos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Objetivo";
             this.Load += new System.EventHandler(this.Objetivo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
