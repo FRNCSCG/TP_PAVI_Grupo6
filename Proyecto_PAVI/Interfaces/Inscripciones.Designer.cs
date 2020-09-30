@@ -34,6 +34,12 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvInscripcion = new System.Windows.Forms.DataGridView();
+            this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFechaVigencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
@@ -49,12 +55,6 @@
             this.cbCurso = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbPuntuacion = new System.Windows.Forms.ComboBox();
-            this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFechaVigencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,6 +87,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalir
             // 
@@ -96,6 +97,7 @@
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvInscripcion
             // 
@@ -115,6 +117,53 @@
             this.dgvInscripcion.Size = new System.Drawing.Size(642, 217);
             this.dgvInscripcion.TabIndex = 49;
             this.dgvInscripcion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripcion_CellClick);
+            // 
+            // clmIdCurso
+            // 
+            this.clmIdCurso.DataPropertyName = "id_usuario";
+            this.clmIdCurso.HeaderText = "Legajo";
+            this.clmIdCurso.Name = "clmIdCurso";
+            this.clmIdCurso.ReadOnly = true;
+            this.clmIdCurso.Width = 70;
+            // 
+            // curso
+            // 
+            this.curso.DataPropertyName = "id_curso";
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.Width = 70;
+            // 
+            // clmFechaVigencia
+            // 
+            this.clmFechaVigencia.DataPropertyName = "fecha_inicio";
+            this.clmFechaVigencia.FillWeight = 160F;
+            this.clmFechaVigencia.HeaderText = "Fecha Inicio";
+            this.clmFechaVigencia.Name = "clmFechaVigencia";
+            this.clmFechaVigencia.ReadOnly = true;
+            this.clmFechaVigencia.Width = 110;
+            // 
+            // Fin
+            // 
+            this.Fin.DataPropertyName = "fecha_fin";
+            this.Fin.HeaderText = "Fecha fin";
+            this.Fin.Name = "Fin";
+            this.Fin.Width = 110;
+            // 
+            // clmCategoria
+            // 
+            this.clmCategoria.DataPropertyName = "puntuacion";
+            this.clmCategoria.HeaderText = "Puntuacion";
+            this.clmCategoria.MinimumWidth = 8;
+            this.clmCategoria.Name = "clmCategoria";
+            this.clmCategoria.ReadOnly = true;
+            this.clmCategoria.Width = 65;
+            // 
+            // Observacion
+            // 
+            this.Observacion.DataPropertyName = "observaciones";
+            this.Observacion.HeaderText = "Observacion";
+            this.Observacion.Name = "Observacion";
+            this.Observacion.Width = 172;
             // 
             // lblFecha
             // 
@@ -205,6 +254,7 @@
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 11;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -263,53 +313,6 @@
             this.cbPuntuacion.Name = "cbPuntuacion";
             this.cbPuntuacion.Size = new System.Drawing.Size(57, 21);
             this.cbPuntuacion.TabIndex = 5;
-            // 
-            // clmIdCurso
-            // 
-            this.clmIdCurso.DataPropertyName = "id_usuario";
-            this.clmIdCurso.HeaderText = "Legajo";
-            this.clmIdCurso.Name = "clmIdCurso";
-            this.clmIdCurso.ReadOnly = true;
-            this.clmIdCurso.Width = 70;
-            // 
-            // curso
-            // 
-            this.curso.DataPropertyName = "id_curso";
-            this.curso.HeaderText = "Curso";
-            this.curso.Name = "curso";
-            this.curso.Width = 70;
-            // 
-            // clmFechaVigencia
-            // 
-            this.clmFechaVigencia.DataPropertyName = "fecha_inicio";
-            this.clmFechaVigencia.FillWeight = 160F;
-            this.clmFechaVigencia.HeaderText = "Fecha Inicio";
-            this.clmFechaVigencia.Name = "clmFechaVigencia";
-            this.clmFechaVigencia.ReadOnly = true;
-            this.clmFechaVigencia.Width = 110;
-            // 
-            // Fin
-            // 
-            this.Fin.DataPropertyName = "fecha_fin";
-            this.Fin.HeaderText = "Fecha fin";
-            this.Fin.Name = "Fin";
-            this.Fin.Width = 110;
-            // 
-            // clmCategoria
-            // 
-            this.clmCategoria.DataPropertyName = "puntuacion";
-            this.clmCategoria.HeaderText = "Puntuacion";
-            this.clmCategoria.MinimumWidth = 8;
-            this.clmCategoria.Name = "clmCategoria";
-            this.clmCategoria.ReadOnly = true;
-            this.clmCategoria.Width = 65;
-            // 
-            // Observacion
-            // 
-            this.Observacion.DataPropertyName = "observaciones";
-            this.Observacion.HeaderText = "Observacion";
-            this.Observacion.Name = "Observacion";
-            this.Observacion.Width = 172;
             // 
             // Inscripciones
             // 

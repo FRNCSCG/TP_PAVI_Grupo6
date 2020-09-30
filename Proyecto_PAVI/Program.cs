@@ -18,6 +18,8 @@ namespace Proyecto_PAVI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
+
+            //Application.Run(new Cursos());
         }
     }
 }

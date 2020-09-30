@@ -127,7 +127,7 @@ namespace Proyecto_PAVI.AccesoDatos
             return resultado;
         }
 
-        public static bool EliminarCurso(int id_curso, int id_usuario)
+        public static bool EliminarInscripcion(int id_curso, int id_usuario)
         {
             bool resultado = false;
             string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
@@ -159,6 +159,39 @@ namespace Proyecto_PAVI.AccesoDatos
             return resultado;
         }
 
+        public static bool ModificarInscripcion(int id_curso, int id_usuario, int puntuacion, string observaciones) { 
+
+            bool resultado = false;
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "UPDATE USUARIOSCURSO SET  PUNTUACION=@PUNTUACION, OBSERVACIONES=@OBSERVACIONES WHERE ID_CURSO=@ID_CURSO AND ID_USUARIO=@ID_USUARIO ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ID_USUARIO", id_usuario );
+                cmd.Parameters.AddWithValue("@ID_CURSO", id_curso );
+                cmd.Parameters.AddWithValue("@PUNTUACION", puntuacion );
+                cmd.Parameters.AddWithValue("@OBSERVACIONES", observaciones);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+                resultado = true;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return resultado;
+        }
 
         //public static Curso RecuperarCurso(int id)
         //{
@@ -271,40 +304,6 @@ namespace Proyecto_PAVI.AccesoDatos
         //    return resultado;
         //}
 
-        //public static bool ModificarCurso(int id, string nombre, int id_categoria, string descripcion, DateTime fecha)
-        //{
-
-        //    bool resultado = false;
-        //    string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-        //    SqlConnection cn = new SqlConnection(cadenaConexion);
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        string consulta = "UPDATE CURSOS SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, FECHA_VIGENCIA=@FECHA, ID_CATEGORIA=@ID_CATEGORIA WHERE ID_CURSO=@ID";
-
-        //        cmd.Parameters.Clear();
-        //        cmd.Parameters.AddWithValue("@ID", id);
-        //        cmd.Parameters.AddWithValue("@NOMBRE", nombre);
-        //        cmd.Parameters.AddWithValue("@DESCRIPCION", descripcion);
-        //        cmd.Parameters.AddWithValue("@FECHA", fecha);
-        //        cmd.Parameters.AddWithValue("@ID_CATEGORIA", id_categoria);
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.CommandText = consulta;
-
-        //        cn.Open();
-        //        cmd.Connection = cn;
-        //        cmd.ExecuteNonQuery();
-        //        resultado = true;
-        //    }
-        //    catch
-        //    {
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        cn.Close();
-        //    }
-        //    return resultado;
-        //}
+        //
     }
 }
