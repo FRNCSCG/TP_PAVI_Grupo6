@@ -103,6 +103,8 @@
             // 
             this.dgvInscripcion.AllowUserToAddRows = false;
             this.dgvInscripcion.AllowUserToDeleteRows = false;
+            this.dgvInscripcion.AllowUserToResizeColumns = false;
+            this.dgvInscripcion.AllowUserToResizeRows = false;
             this.dgvInscripcion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInscripcion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmIdCurso,
@@ -112,7 +114,9 @@
             this.clmCategoria,
             this.Observacion});
             this.dgvInscripcion.Location = new System.Drawing.Point(78, 272);
+            this.dgvInscripcion.MultiSelect = false;
             this.dgvInscripcion.Name = "dgvInscripcion";
+            this.dgvInscripcion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvInscripcion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInscripcion.Size = new System.Drawing.Size(642, 217);
             this.dgvInscripcion.TabIndex = 49;
@@ -340,6 +344,7 @@
             this.Controls.Add(this.tbLegajo);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Inscripciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.Estudiantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
