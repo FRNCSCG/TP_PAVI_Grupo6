@@ -39,12 +39,5 @@ namespace Proyecto_PAVI.Interfaces
             Categorias pantCategoria = new Categorias();
             pantCategoria.Show();
         }
-
-        private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Inscripciones pantIncripciiones = new Inscripciones();
-            pantIncripciiones.Show();
-        }
     }
 }

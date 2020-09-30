@@ -141,7 +141,11 @@ namespace Proyecto_PAVI.Interfaces
                 if (res)
                 {
                     MessageBox.Show("Curso eliminado correctamente");
-                   
+                    LimpiarCampos();
+                    CargarGrilla();
+                    ban = false;
+                    this.Habilitar(false);
+                    guardar = 0;
                 }
                 else
                 {
@@ -222,7 +226,7 @@ namespace Proyecto_PAVI.Interfaces
             this.Habilitar(false);
             guardar = 0;
         }
-
-       
+        
+        
     }
 }
