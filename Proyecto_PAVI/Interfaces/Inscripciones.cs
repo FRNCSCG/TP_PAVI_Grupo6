@@ -26,6 +26,8 @@ namespace Proyecto_PAVI.Interfaces
             CargarGrilla();
             CargarComboCursos();
             Habilitar(false);
+            btnCancelar.Enabled = false;
+            btnGrabar.Enabled = false;
         }
               
 
@@ -49,21 +51,18 @@ namespace Proyecto_PAVI.Interfaces
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            if (tbLegajo.Text.Equals("") || cbCurso.SelectedIndex.Equals(-1))
-            {
-                MessageBox.Show("Por favor seleccion una inscripcion a eliminar");
-            }
-            else
+
+            if (validarCampos())
             {
                 EstudiantesCurso est = obtenerInscripcion();
                 //SI EL USUARIO QUIERE CREAR UN CURSO
                 if (guardar == 1)
                 {
 
-                    bool res = AD_Inscripcion.RegistrarInscripcion(est.Id_usuario, est.Id_curso, est.Fecha_inicio, est.Fecha_fin, est.Puntuacion, est.Observaciones);
+                    bool res = AD_Inscripcion.RegistrarTransaccion(est.Id_usuario, est.Id_curso, est.Fecha_inicio, est.Fecha_fin, est.Puntuacion, est.Observaciones);
                     if (res)
                     {
-                        AD_AvanceCurso.RegistrarAvance(est.Id_usuario, est.Id_curso, est.Fecha_inicio, est.Fecha_fin);
+
                         MessageBox.Show("Curso registrado correctamente");
                     }
                     else
@@ -101,6 +100,7 @@ namespace Proyecto_PAVI.Interfaces
         private EstudiantesCurso obtenerInscripcion()
         {
             EstudiantesCurso c = new EstudiantesCurso();
+
             Curso curso = AD_Curso.RecuperarCurso((int)(cbCurso.SelectedValue));
             if (cbPuntuacion.SelectedItem is null)
             {
@@ -236,6 +236,9 @@ namespace Proyecto_PAVI.Interfaces
             dtpFechaInicio.Enabled = v;
             txtObservacion.Enabled = v;
             cbPuntuacion.Enabled = v;
+            btnGrabar.Enabled = v;
+            btnCancelar.Enabled = v;
+
 
         }
 
@@ -248,10 +251,29 @@ namespace Proyecto_PAVI.Interfaces
             cbCurso.SelectedIndex = -1;
         }
 
+        //VERIFICA QUE NO HAYA CAMPOS SIN LLENAR
+        public bool validarCampos()
+        {
+            if (tbLegajo.Text == "")
+            {
+                MessageBox.Show("El legajo está vacío");
+                return false;
+            }
+            
+            if (cbCurso.SelectedIndex==-1)
+            {
+                MessageBox.Show("elegir curso");
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             ban = false;
             this.Habilitar(false);
+            LimpiarCampos();
             guardar = 0;
         }
 

@@ -259,6 +259,7 @@
             this.Controls.Add(this.lblIdCurso);
             this.Controls.Add(this.txtIdObjetivo);
             this.Name = "Objetivos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Objetivo";
             this.Load += new System.EventHandler(this.Objetivo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

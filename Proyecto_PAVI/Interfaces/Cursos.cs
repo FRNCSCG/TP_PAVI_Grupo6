@@ -76,35 +76,41 @@ namespace Proyecto_PAVI.Interfaces
         
         private void btnGrabar_Click(object sender, EventArgs e)      
         {
-            Curso c = obtenerCurso();
+ 
             //SI EL USUARIO QUIERE CREAR UN CURSO
-            if (guardar==1){               
+            if (validarCampos())
+            {
+                Curso c = obtenerCurso();
+                if (guardar == 1)
+                {
 
-                bool res = AD_Curso.RegistrarCurso(c.Id_curso, c.Nombre, c.Id_categoria, c.Descripcion, c.Fecha_vigencia);
-                if (res)
-                {
-                    MessageBox.Show("Curso registrado correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al registrar curso");
-                }
-               
-            }
-            //SI EL USUARIO DESEA MODIFICAR UN CURSO
-            if(guardar == 2)
-            {                
+                    bool res = AD_Curso.RegistrarCurso(c.Id_curso, c.Nombre, c.Id_categoria, c.Descripcion, c.Fecha_vigencia);
+                    if (res)
+                    {
+                        MessageBox.Show("Curso registrado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar curso");
+                    }
 
-                bool res = AD_Curso.ModificarCurso(c.Id_curso, c.Nombre, c.Id_categoria, c.Descripcion, c.Fecha_vigencia);
-                if (res)
-                {
-                    MessageBox.Show("Curso modificado correctamente");
                 }
-                else
+                //SI EL USUARIO DESEA MODIFICAR UN CURSO
+                if (guardar == 2)
                 {
-                    MessageBox.Show("Error al modificar curso");
+
+                    bool res = AD_Curso.ModificarCurso(c.Id_curso, c.Nombre, c.Id_categoria, c.Descripcion, c.Fecha_vigencia);
+                    if (res)
+                    {
+                        MessageBox.Show("Curso modificado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al modificar curso");
+                    }
+
+
                 }
-                
 
             }
             LimpiarCampos();
@@ -223,6 +229,32 @@ namespace Proyecto_PAVI.Interfaces
             guardar = 0;
         }
 
-       
+        public bool validarCampos()
+        {
+            if (txtIdCurso.Text=="")
+            {
+                MessageBox.Show("El id está vacío");
+                return false;
+            }
+            if (txtNombre.Text=="")
+            {
+                MessageBox.Show("El nombre está vacío");
+                return false;
+            }
+            if (txtDescripcion.Text == "")
+            {
+                MessageBox.Show("El email está vacío...");
+                return false;
+            }
+            if (cboCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione categoria");
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }

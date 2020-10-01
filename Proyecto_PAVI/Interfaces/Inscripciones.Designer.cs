@@ -224,16 +224,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, -1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(927, 55);
+            this.dataGridView1.Size = new System.Drawing.Size(731, 55);
             this.dataGridView1.TabIndex = 56;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.SlateBlue;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
@@ -345,7 +345,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Inscripciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estudiantes";
+            this.Text = "Inscripcion";
             this.Load += new System.EventHandler(this.Estudiantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

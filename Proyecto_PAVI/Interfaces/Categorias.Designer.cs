@@ -260,6 +260,7 @@
             this.Controls.Add(this.lblIdCategoria);
             this.Controls.Add(this.txtIdCategoria);
             this.Name = "Categorias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria";
             this.Load += new System.EventHandler(this.Categoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -60,11 +60,11 @@ namespace Proyecto_PAVI.Interfaces
                 bool res = AD_Objetivo.RegistrarObjetivo(o.Id_objetivo ,o.Nombre_corto , o.Nombre_largo );
                 if (res)
                 {
-                    MessageBox.Show("Curso registrado correctamente");
+                    MessageBox.Show("objetivo registrado correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar curso");
+                    MessageBox.Show("Error al registrar objetivo");
                 }
                 
             }
@@ -75,11 +75,11 @@ namespace Proyecto_PAVI.Interfaces
                 bool res = AD_Objetivo.ModificarObjetivo(o.Id_objetivo, o.Nombre_corto, o.Nombre_largo);
                 if (res)
                 {
-                    MessageBox.Show("Curso modificado correctamente");
+                    MessageBox.Show("Objetivo modificado correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("Error al modificar curso");
+                    MessageBox.Show("Error al modificar objetivo");
                 }
                 
             }
@@ -119,7 +119,7 @@ namespace Proyecto_PAVI.Interfaces
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar curso");
+                    MessageBox.Show("Error al eliminar objetivo");
                 }
             }
         }
