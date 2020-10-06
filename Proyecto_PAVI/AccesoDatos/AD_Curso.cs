@@ -55,7 +55,7 @@ namespace Proyecto_PAVI.AccesoDatos
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM CURSOS ";
+                string consulta = "SELECT * FROM CURSOS WHERE BORRADO=0";
 
                 cmd.Parameters.Clear();
 

@@ -1,4 +1,5 @@
-﻿using Proyecto_PAVI.AccesoDatos;
+﻿using Proyecto_PAVI.AccesoBD;
+using Proyecto_PAVI.AccesoDatos;
 using Proyecto_PAVI.Entidades;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace Proyecto_PAVI.Interfaces
         private void Estudiantes_Load(object sender, EventArgs e)
         {
             CargarGrilla();
-            CargarComboCursos();
+            Llenar_Combo(cbCurso ,AD_Curso.obtenerCursos() ,"nombre","id_curso");
+            Llenar_Combo(cbUsuario , AD_Usuario.obtenerUsuario(), "usuario", "id_usuario");
             Habilitar(false);
             btnCancelar.Enabled = false;
             btnGrabar.Enabled = false;
@@ -44,7 +46,7 @@ namespace Proyecto_PAVI.Interfaces
             LimpiarCampos();
             this.btnEditar.Enabled = false;
             this.btnBorrar.Enabled = false;
-            this.tbLegajo .Focus();
+            this.cbUsuario  .Focus();
         }
 
        
@@ -113,7 +115,7 @@ namespace Proyecto_PAVI.Interfaces
 
             }
             
-            c.Id_usuario  = int.Parse(tbLegajo.Text.Trim());
+            c.Id_usuario  = (int)cbUsuario.SelectedValue ;
             c.Id_curso  = (int)cbCurso.SelectedValue  ;
             c.Fecha_inicio  = dtpFechaInicio .Value;           
             c.Observaciones  = txtObservacion .Text.Trim();
@@ -142,7 +144,7 @@ namespace Proyecto_PAVI.Interfaces
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             //SI NO SELECCIONO UNA INSCRIPCION
-            if(tbLegajo.Text.Equals("") || cbCurso.SelectedIndex.Equals(-1)){
+            if(cbUsuario.SelectedIndex.Equals(-1) || cbCurso.SelectedIndex.Equals(-1)){
                 MessageBox.Show("Por favor seleccion una inscripcion a eliminar");
             }
             //SI SELECCIONO UNA INSCRIPCION
@@ -152,7 +154,7 @@ namespace Proyecto_PAVI.Interfaces
                 EstudiantesCurso est = obtenerInscripcion();
                 //OBTIENE CURSO SELECIONADO PARA MOSTRAR NOMBRE
                 Curso curso = AD_Curso.RecuperarCurso(est.Id_curso);
-                if (MessageBox.Show("Está seguro que desea eliminar la inscripcion del legajo " + tbLegajo.Text + " en el curso " + curso.Nombre + "?",
+                if (MessageBox.Show("Está seguro que desea eliminar la inscripcion del legajo " + cbUsuario .Text + " en el curso " + curso.Nombre + "?",
                                     "Eliminado",
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Error,
@@ -192,7 +194,7 @@ namespace Proyecto_PAVI.Interfaces
                 Habilitar(true);
                 this.ban = true;
             }
-            this.tbLegajo .Enabled = false;
+            this.cbUsuario.Enabled = false;
             this.cbCurso .Enabled = false;
             this.dtpFechaInicio .Enabled = false;
             this.cbPuntuacion .Focus();
@@ -205,7 +207,7 @@ namespace Proyecto_PAVI.Interfaces
         private void cargarCampos(EstudiantesCurso c)
         {
             txtObservacion.Text = c.Observaciones;
-            tbLegajo.Text = c.Id_usuario.ToString();
+            cbUsuario.SelectedValue = c.Id_usuario.ToString();
             cbCurso.SelectedValue = c.Id_curso;
             cbPuntuacion.SelectedItem = c.Puntuacion.ToString();
             dtpFechaInicio.Value = c.Fecha_inicio;
@@ -214,7 +216,7 @@ namespace Proyecto_PAVI.Interfaces
         //NOS AYUDA A LIMPIAR TODOS LOS CAMPOS
         private void LimpiarCampos()
         {
-            tbLegajo.Text = "";
+            cbUsuario.Text = "";
             cbCurso.Text = "";
             dtpFechaInicio.Value = DateTime.Today;
             txtObservacion.Text = "";
@@ -231,7 +233,7 @@ namespace Proyecto_PAVI.Interfaces
         //NOS PERMITE HABILITAR/DESHABILITAR LOS CAMPOS
         private void Habilitar(bool v)
         {
-            tbLegajo.Enabled = v;
+            cbUsuario.Enabled = v;
             cbCurso.Enabled = v;
             dtpFechaInicio.Enabled = v;
             txtObservacion.Enabled = v;
@@ -242,19 +244,20 @@ namespace Proyecto_PAVI.Interfaces
 
         }
 
-        //NOS PERMITE CARGAR EL COMBO DE CURSOS A SELECCIONAR
-        private void CargarComboCursos()
+        //NOS PERMITE CARGAR COMBOS
+        private void Llenar_Combo(ComboBox combo, DataTable  datos, string display, string value)
         {
-            cbCurso.DataSource = AD_Curso.obtenerCursos();
-            cbCurso.DisplayMember = "nombre";
-            cbCurso.ValueMember = "id_curso";
-            cbCurso.SelectedIndex = -1;
+            combo.DataSource = datos;
+            combo.DisplayMember = display;
+            combo.ValueMember = value;
+            combo.SelectedValue = -1;
         }
+       
 
         //VERIFICA QUE NO HAYA CAMPOS SIN LLENAR
         public bool validarCampos()
         {
-            if (tbLegajo.Text == "")
+            if (cbUsuario.SelectedIndex.Equals(-1))
             {
                 MessageBox.Show("El legajo está vacío");
                 return false;
@@ -283,5 +286,7 @@ namespace Proyecto_PAVI.Interfaces
             MenuPrincipal pantMenuPrincipal = new MenuPrincipal();
             pantMenuPrincipal.Show();
         }
+
+        
     }
 }

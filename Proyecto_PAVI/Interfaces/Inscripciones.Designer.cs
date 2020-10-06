@@ -41,11 +41,10 @@
             this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.Usuario = new System.Windows.Forms.Label();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.tbLegajo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@
             this.cbCurso = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbPuntuacion = new System.Windows.Forms.ComboBox();
+            this.cbUsuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -178,14 +178,14 @@
             this.lblFecha.TabIndex = 47;
             this.lblFecha.Text = "Fecha inicio:";
             // 
-            // lblNombre
+            // Usuario
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(30, 92);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(42, 13);
-            this.lblNombre.TabIndex = 46;
-            this.lblNombre.Text = "Legajo:";
+            this.Usuario.AutoSize = true;
+            this.Usuario.Location = new System.Drawing.Point(30, 92);
+            this.Usuario.Name = "Usuario";
+            this.Usuario.Size = new System.Drawing.Size(42, 13);
+            this.Usuario.TabIndex = 46;
+            this.Usuario.Text = "Legajo:";
             // 
             // dtpFechaInicio
             // 
@@ -210,13 +210,6 @@
             this.lblId.Size = new System.Drawing.Size(37, 13);
             this.lblId.TabIndex = 41;
             this.lblId.Text = "Curso:";
-            // 
-            // tbLegajo
-            // 
-            this.tbLegajo.Location = new System.Drawing.Point(79, 89);
-            this.tbLegajo.Name = "tbLegajo";
-            this.tbLegajo.Size = new System.Drawing.Size(211, 20);
-            this.tbLegajo.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -318,11 +311,20 @@
             this.cbPuntuacion.Size = new System.Drawing.Size(57, 21);
             this.cbPuntuacion.TabIndex = 5;
             // 
+            // cbUsuario
+            // 
+            this.cbUsuario.FormattingEnabled = true;
+            this.cbUsuario.Location = new System.Drawing.Point(79, 89);
+            this.cbUsuario.Name = "cbUsuario";
+            this.cbUsuario.Size = new System.Drawing.Size(210, 21);
+            this.cbUsuario.TabIndex = 64;
+            // 
             // Inscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 535);
+            this.Controls.Add(this.cbUsuario);
             this.Controls.Add(this.cbPuntuacion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbCurso);
@@ -337,11 +339,10 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvInscripcion);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.Usuario);
             this.Controls.Add(this.dtpFechaInicio);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.tbLegajo);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Inscripciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -366,11 +367,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgvInscripcion;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label Usuario;
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox tbLegajo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label tituloAbmCurso;
         private System.Windows.Forms.ComboBox cbCurso;
@@ -382,5 +382,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fin;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
+        private System.Windows.Forms.ComboBox cbUsuario;
     }
 }
