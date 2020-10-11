@@ -134,9 +134,20 @@ namespace Proyecto_PAVI.AccesoDatos
             bool resultado = false;
             string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
+            cn.Open();
+
+            SqlCommand cmd = cn.CreateCommand();
+
+            //comenzar una transaccion
+            SqlTransaction transaction;
+            transaction = cn.BeginTransaction();
+
+            //se asigna objeto de transaccion y conexion al Objeto comando
+            cmd.Connection = cn;
+            cmd.Transaction = transaction;
+
             try
             {
-                SqlCommand cmd = new SqlCommand();
                 string consulta = "DELETE FROM USUARIOSCURSO WHERE ID_CURSO=@ID_CURSO AND ID_USUARIO=@ID_USUARIO";
 
                 cmd.Parameters.Clear();
@@ -144,14 +155,18 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.Parameters.AddWithValue("@ID_CURSO", id_curso);
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
                 cmd.ExecuteNonQuery();
+                
+                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario, id_curso, cmd, 3);
+
+
+                transaction.Commit();
                 resultado = true;
             }
             catch
             {
+                transaction.Rollback();
+                return resultado;
                 throw;
             }
             finally
@@ -166,9 +181,19 @@ namespace Proyecto_PAVI.AccesoDatos
             bool resultado = false;
             string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
+            cn.Open();
+
+            SqlCommand cmd = cn.CreateCommand();
+
+            //comenzar una transaccion
+            SqlTransaction transaction;
+            transaction = cn.BeginTransaction();
+
+            //se asigna objeto de transaccion y conexion al Objeto comando
+            cmd.Connection = cn;
+            cmd.Transaction = transaction;
             try
             {
-                SqlCommand cmd = new SqlCommand();
                 string consulta = "UPDATE USUARIOSCURSO SET  PUNTUACION=@PUNTUACION, OBSERVACIONES=@OBSERVACIONES WHERE ID_CURSO=@ID_CURSO AND ID_USUARIO=@ID_USUARIO ";
 
                 cmd.Parameters.Clear();
@@ -178,14 +203,17 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.Parameters.AddWithValue("@OBSERVACIONES", observaciones);
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
                 cmd.ExecuteNonQuery();
+
+                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario, id_curso, cmd, 2);
+
+                transaction.Commit();
                 resultado = true;
             }
             catch
             {
+                transaction.Rollback();
+                return resultado;
                 throw;
             }
             finally
@@ -218,23 +246,28 @@ namespace Proyecto_PAVI.AccesoDatos
             try
             {
                 //insert inscripcion (tabla UsuariosCurso)
-                ins = RegistrarInscripcion(id_usuario, id_curso, fecha_inicio, fecha_fin, puntuacion, observaciones, cmd);
+                ins = RegistrarInscripcion(id_usuario, 0, fecha_inicio, fecha_fin, puntuacion, observaciones, cmd);
 
                 //insert avance (tabla UsuariosCursoavance)
                 curAvanc = AD_AvanceCurso.RegistrarAvance(id_usuario, id_curso, fecha_inicio, fecha_fin, cmd);
 
+                //insert entrada historial
+                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario,id_curso,cmd, 1);
+
                 //si ambos se realizaron exitosamente, se hace commit 
-                if (ins == true && curAvanc == true)
-                {
-                    transaction.Commit();
-                    resultado = true;
-                }
+                //if (ins == true && curAvanc == true)
+                //{
+                transaction.Commit();
+                resultado = true;
+                //}
 
             }
             catch
             {
                 transaction.Rollback();
+                return resultado;
                 throw;
+                
             }
             finally
             {

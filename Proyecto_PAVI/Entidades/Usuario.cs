@@ -8,13 +8,16 @@ namespace Proyecto_PAVI.Entidades
 {
     class Usuario
     {
+        private int id_usuario;
         private string user;
         private string contraseña;
 
         public Usuario()
         {
         }
-
+        
+        public int Id_usuario { get => id_usuario; set => id_usuario = value; }
+        
         public string User {
             get => user;
             set => user = value;
@@ -24,5 +27,6 @@ namespace Proyecto_PAVI.Entidades
             get => contraseña;
             set => contraseña = value;
         }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Proyecto_PAVI.AccesoBD;
+﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using Proyecto_PAVI.AccesoBD;
 using Proyecto_PAVI.Entidades;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace Proyecto_PAVI.Interfaces
 {
     public partial class Login : Form
     {
+
+
         public Login()
         {
             InitializeComponent();
         }
-
+        
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

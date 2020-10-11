@@ -40,7 +40,16 @@ namespace Proyecto_PAVI.Interfaces
             pantCategoria.Show();
         }
 
-        private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HistorialInscripciones pantHistorial = new HistorialInscripciones();
+            pantHistorial.Show();
+        }
+
+        private void gestionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             Inscripciones pantIncripciiones = new Inscripciones();
