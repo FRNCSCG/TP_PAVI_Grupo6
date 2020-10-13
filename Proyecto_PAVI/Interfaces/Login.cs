@@ -1,5 +1,4 @@
-﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
-using Proyecto_PAVI.AccesoBD;
+﻿using Proyecto_PAVI.AccesoBD;
 using Proyecto_PAVI.Entidades;
 using System;
 using System.Collections.Generic;
@@ -16,15 +15,32 @@ namespace Proyecto_PAVI.Interfaces
     public partial class Login : Form
     {
 
-
+        
         public Login()
         {
             InitializeComponent();
         }
-        
+
+        Usuario usuario = new Usuario();
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //CARGAR USUARIO APARTIR
+        //DE LOS TEXTBOXS
+        public Usuario  cargarUsuario(TextBox txtUsuario,TextBox txtContraseña)
+        {            
+            usuario.User = txtUsuario.Text;
+            usuario.Contraseña = txtContraseña.Text;
+            return usuario;
+        }
+        //OBETENER USUARIO
+
+        public Usuario obtenerUsuario()
+        {
+            return usuario ;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -35,9 +51,7 @@ namespace Proyecto_PAVI.Interfaces
             }
             else
             {
-                Usuario usuario = new Usuario();
-                usuario.User = txtUsuario.Text;
-                usuario.Contraseña = txtContraseña.Text;
+                Usuario usuario = cargarUsuario(txtUsuario, txtContraseña);
 
                 bool var = AD_Usuario.validar_usuario(usuario.User ,usuario.Contraseña );
                 if (var)

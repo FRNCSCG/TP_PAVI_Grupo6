@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_PAVI.Entidades
 {
-    class Usuario
+    public class Usuario
     {
         private int id_usuario;
         private string user;
@@ -16,7 +16,9 @@ namespace Proyecto_PAVI.Entidades
         {
         }
         
-        public int Id_usuario { get => id_usuario; set => id_usuario = value; }
+        public int Id_usuario { 
+            get => id_usuario; 
+            set => id_usuario = value; }
         
         public string User {
             get => user;

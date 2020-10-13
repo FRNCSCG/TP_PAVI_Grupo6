@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Proyecto_PAVI.Entidades;
+using Proyecto_PAVI.Interfaces;
 
 namespace Proyecto_PAVI.AccesoDatos
 {
@@ -156,8 +157,11 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
                 cmd.ExecuteNonQuery();
-                
-                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario, id_curso, cmd, 3);
+
+                Login login = new Login();
+                Usuario usuario = login.obtenerUsuario();
+
+                AD_HistorialInscripcion.RegistrarHistorial(int.Parse(usuario.User) , id_usuario, id_curso, cmd, 3);
 
 
                 transaction.Commit();
@@ -252,7 +256,7 @@ namespace Proyecto_PAVI.AccesoDatos
                 curAvanc = AD_AvanceCurso.RegistrarAvance(id_usuario, id_curso, fecha_inicio, fecha_fin, cmd);
 
                 //insert entrada historial
-                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario,id_curso,cmd, 1);
+                AD_HistorialInscripcion.RegistrarHistorial(usuario. , id_usuario,id_curso,cmd, 1);
 
                 //si ambos se realizaron exitosamente, se hace commit 
                 //if (ins == true && curAvanc == true)
