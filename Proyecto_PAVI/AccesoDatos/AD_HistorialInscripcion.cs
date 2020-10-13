@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_PAVI.AccesoDatos
 {
@@ -19,7 +20,7 @@ namespace Proyecto_PAVI.AccesoDatos
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT ID_HISTORIAL,DESCRIPCION,ID_RESPONSABLE,FECHA,ID_INSCRIPTO,ID_CURSO FROM HISTORIALINSCRIPCIONES";
+                string consulta = "SELECT ID_HISTORIAL,DESCRIPCION,RESPONSABLE,FECHA,ID_INSCRIPTO,ID_CURSO FROM HISTORIALINSCRIPCIONES";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -46,13 +47,13 @@ namespace Proyecto_PAVI.AccesoDatos
         }
 
 
-        public static void RegistrarHistorial(int id_responsable, int id_inscripto, int id_curso, SqlCommand cmd, int modo)
+        public static void RegistrarHistorial(string responsable, int id_inscripto, int id_curso, SqlCommand cmd, int modo)
         {
 
 
             try
             {
-                string consulta = "INSERT INTO HISTORIALINSCRIPCIONES (DESCRIPCION,ID_RESPONSABLE,FECHA,ID_INSCRIPTO,ID_CURSO) VALUES(@DESCRIPCION,@ID_RESPONSABLE,@FECHA,@ID_INSCRIPTO,@ID_CURSO)";
+                string consulta = "INSERT INTO HISTORIALINSCRIPCIONES (DESCRIPCION,RESPONSABLE,FECHA,ID_INSCRIPTO,ID_CURSO) VALUES(@DESCRIPCION,@RESPONSABLE,@FECHA,@ID_INSCRIPTO,@ID_CURSO)";
 
                 cmd.Parameters.Clear();
 
@@ -68,7 +69,7 @@ namespace Proyecto_PAVI.AccesoDatos
                         cmd.Parameters.AddWithValue("@DESCRIPCION", "Eliminacion de inscripcion");
                         break;
                 }
-                cmd.Parameters.AddWithValue("@ID_RESPONSABLE", id_responsable);
+                cmd.Parameters.AddWithValue("@RESPONSABLE", responsable);
                 cmd.Parameters.AddWithValue("@FECHA", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ID_INSCRIPTO", id_inscripto);
                 cmd.Parameters.AddWithValue("@ID_CURSO", id_curso);
@@ -79,6 +80,7 @@ namespace Proyecto_PAVI.AccesoDatos
             }
             catch
             {
+                MessageBox.Show("Error al registrar Historial");
                 throw;
             }
 

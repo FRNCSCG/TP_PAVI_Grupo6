@@ -23,25 +23,22 @@ namespace Proyecto_PAVI.Interfaces
 
         Usuario usuario = new Usuario();
 
+        public static string usuarioActual;
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //CARGAR USUARIO APARTIR
-        //DE LOS TEXTBOXS
+        
+        //CARGAR USUARIO APARTIR DE LOS TEXTBOXS
         public Usuario  cargarUsuario(TextBox txtUsuario,TextBox txtContraseña)
         {            
             usuario.User = txtUsuario.Text;
             usuario.Contraseña = txtContraseña.Text;
             return usuario;
         }
-        //OBETENER USUARIO
 
-        public Usuario obtenerUsuario()
-        {
-            return usuario ;
-        }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -52,6 +49,7 @@ namespace Proyecto_PAVI.Interfaces
             else
             {
                 Usuario usuario = cargarUsuario(txtUsuario, txtContraseña);
+                usuarioActual = usuario.User;
 
                 bool var = AD_Usuario.validar_usuario(usuario.User ,usuario.Contraseña );
                 if (var)

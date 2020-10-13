@@ -12,9 +12,9 @@ namespace Proyecto_PAVI.AccesoDatos
     {
         
 
-        public static bool RegistrarAvance(int id_usuario, int id_curso, DateTime fecha_inicio, DateTime fecha_fin, SqlCommand cmd)
+        public static void RegistrarAvance(int id_usuario, int id_curso, DateTime fecha_inicio, DateTime fecha_fin, SqlCommand cmd)
         {
-            bool resultado = false;
+
             try
             {
  
@@ -29,16 +29,13 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
                 cmd.ExecuteNonQuery();
-                resultado = true;
 
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("error");
                 throw;
             }
 
-            return resultado;
 
         }
 

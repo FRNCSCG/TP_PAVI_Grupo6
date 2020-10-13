@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialInscripciones));
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tituloHistorial = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clmIdHistorial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUsuarioResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmInscripto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.tituloHistorial = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,49 +62,6 @@
             this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.Size = new System.Drawing.Size(784, 299);
             this.dgvHistorial.TabIndex = 0;
-            // 
-            // clmIdHistorial
-            // 
-            this.clmIdHistorial.DataPropertyName = "id_historial";
-            this.clmIdHistorial.HeaderText = "Id_actividad";
-            this.clmIdHistorial.Name = "clmIdHistorial";
-            this.clmIdHistorial.ReadOnly = true;
-            // 
-            // clmDescripcion
-            // 
-            this.clmDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmDescripcion.DataPropertyName = "descripcion";
-            this.clmDescripcion.HeaderText = "Descripcion";
-            this.clmDescripcion.Name = "clmDescripcion";
-            this.clmDescripcion.ReadOnly = true;
-            // 
-            // clmUsuarioResponsable
-            // 
-            this.clmUsuarioResponsable.DataPropertyName = "id_responsable";
-            this.clmUsuarioResponsable.HeaderText = "Usuario Responsable";
-            this.clmUsuarioResponsable.Name = "clmUsuarioResponsable";
-            this.clmUsuarioResponsable.ReadOnly = true;
-            // 
-            // clmFecha
-            // 
-            this.clmFecha.DataPropertyName = "fecha";
-            this.clmFecha.HeaderText = "Fecha";
-            this.clmFecha.Name = "clmFecha";
-            this.clmFecha.ReadOnly = true;
-            // 
-            // clmInscripto
-            // 
-            this.clmInscripto.DataPropertyName = "id_inscripto";
-            this.clmInscripto.HeaderText = "Usuario Inscripto";
-            this.clmInscripto.Name = "clmInscripto";
-            this.clmInscripto.ReadOnly = true;
-            // 
-            // clmCurso
-            // 
-            this.clmCurso.DataPropertyName = "id_curso";
-            this.clmCurso.HeaderText = "Curso";
-            this.clmCurso.Name = "clmCurso";
-            this.clmCurso.ReadOnly = true;
             // 
             // btnSalir
             // 
@@ -148,6 +105,49 @@
             this.dataGridView1.Size = new System.Drawing.Size(812, 55);
             this.dataGridView1.TabIndex = 60;
             // 
+            // clmIdHistorial
+            // 
+            this.clmIdHistorial.DataPropertyName = "id_historial";
+            this.clmIdHistorial.HeaderText = "Id Actividad";
+            this.clmIdHistorial.Name = "clmIdHistorial";
+            this.clmIdHistorial.ReadOnly = true;
+            // 
+            // clmDescripcion
+            // 
+            this.clmDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmDescripcion.DataPropertyName = "descripcion";
+            this.clmDescripcion.HeaderText = "Descripcion";
+            this.clmDescripcion.Name = "clmDescripcion";
+            this.clmDescripcion.ReadOnly = true;
+            // 
+            // clmUsuarioResponsable
+            // 
+            this.clmUsuarioResponsable.DataPropertyName = "responsable";
+            this.clmUsuarioResponsable.HeaderText = "Usuario Responsable";
+            this.clmUsuarioResponsable.Name = "clmUsuarioResponsable";
+            this.clmUsuarioResponsable.ReadOnly = true;
+            // 
+            // clmFecha
+            // 
+            this.clmFecha.DataPropertyName = "fecha";
+            this.clmFecha.HeaderText = "Fecha";
+            this.clmFecha.Name = "clmFecha";
+            this.clmFecha.ReadOnly = true;
+            // 
+            // clmInscripto
+            // 
+            this.clmInscripto.DataPropertyName = "id_inscripto";
+            this.clmInscripto.HeaderText = "Id Usuario Inscripto";
+            this.clmInscripto.Name = "clmInscripto";
+            this.clmInscripto.ReadOnly = true;
+            // 
+            // clmCurso
+            // 
+            this.clmCurso.DataPropertyName = "id_curso";
+            this.clmCurso.HeaderText = "Id Curso";
+            this.clmCurso.Name = "clmCurso";
+            this.clmCurso.ReadOnly = true;
+            // 
             // HistorialInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,14 +174,14 @@
 
         private System.Windows.Forms.DataGridView dgvHistorial;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label tituloHistorial;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIdHistorial;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUsuarioResponsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmInscripto;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCurso;
-        private System.Windows.Forms.Label tituloHistorial;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

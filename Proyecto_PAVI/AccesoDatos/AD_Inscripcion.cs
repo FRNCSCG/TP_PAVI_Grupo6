@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Proyecto_PAVI.Entidades;
 using Proyecto_PAVI.Interfaces;
 
@@ -94,9 +95,8 @@ namespace Proyecto_PAVI.AccesoDatos
 
 
 
-        public static bool RegistrarInscripcion(int id_usuario, int id_curso, DateTime fecha_inicio, DateTime fecha_fin, int puntuacion, string observaciones, SqlCommand cmd)
+        public static void RegistrarInscripcion(int id_usuario, int id_curso, DateTime fecha_inicio, DateTime fecha_fin, int puntuacion, string observaciones, SqlCommand cmd)
         {
-            bool resultado = false;
 
             try
             {
@@ -113,16 +113,13 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.CommandText = consulta;
                 cmd.ExecuteNonQuery();
 
-                resultado = true;
+
             }
             catch
             {
                 System.Windows.Forms.MessageBox.Show("Inscripcion existente");
             }
 
-
-
-            return resultado;
         }
 
 
@@ -158,10 +155,8 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.CommandText = consulta;
                 cmd.ExecuteNonQuery();
 
-                Login login = new Login();
-                Usuario usuario = login.obtenerUsuario();
-
-                AD_HistorialInscripcion.RegistrarHistorial(int.Parse(usuario.User) , id_usuario, id_curso, cmd, 3);
+                string usuario = Login.usuarioActual;
+                AD_HistorialInscripcion.RegistrarHistorial(usuario, id_usuario, id_curso, cmd, 3);
 
 
                 transaction.Commit();
@@ -209,7 +204,10 @@ namespace Proyecto_PAVI.AccesoDatos
                 cmd.CommandText = consulta;
                 cmd.ExecuteNonQuery();
 
-                AD_HistorialInscripcion.RegistrarHistorial(id_responsable, id_usuario, id_curso, cmd, 2);
+
+                string usuario = Login.usuarioActual;
+                AD_HistorialInscripcion.RegistrarHistorial(usuario, id_usuario, id_curso, cmd, 2);
+
 
                 transaction.Commit();
                 resultado = true;
@@ -229,8 +227,6 @@ namespace Proyecto_PAVI.AccesoDatos
 
         public static bool RegistrarTransaccion(int id_usuario, int id_curso, DateTime fecha_inicio, DateTime fecha_fin, int puntuacion, string observaciones)
         {
-            bool ins = false;
-            bool curAvanc = false;
             bool resultado = false;
             
             string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
@@ -250,20 +246,22 @@ namespace Proyecto_PAVI.AccesoDatos
             try
             {
                 //insert inscripcion (tabla UsuariosCurso)
-                ins = RegistrarInscripcion(id_usuario, 0, fecha_inicio, fecha_fin, puntuacion, observaciones, cmd);
+                RegistrarInscripcion(id_usuario, id_curso, fecha_inicio, fecha_fin, puntuacion, observaciones, cmd);
 
                 //insert avance (tabla UsuariosCursoavance)
-                curAvanc = AD_AvanceCurso.RegistrarAvance(id_usuario, id_curso, fecha_inicio, fecha_fin, cmd);
+                AD_AvanceCurso.RegistrarAvance(id_usuario, id_curso, fecha_inicio, fecha_fin, cmd);
 
-                //insert entrada historial
-                AD_HistorialInscripcion.RegistrarHistorial(usuario. , id_usuario,id_curso,cmd, 1);
+                
+                string usuario = Login.usuarioActual;
+
+                AD_HistorialInscripcion.RegistrarHistorial(usuario, id_usuario, id_curso, cmd, 1);
 
                 //si ambos se realizaron exitosamente, se hace commit 
                 //if (ins == true && curAvanc == true)
-                //{
+
                 transaction.Commit();
                 resultado = true;
-                //}
+
 
             }
             catch

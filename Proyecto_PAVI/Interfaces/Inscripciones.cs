@@ -65,11 +65,11 @@ namespace Proyecto_PAVI.Interfaces
                     if (res)
                     {
 
-                        MessageBox.Show("Curso registrado correctamente");
+                        MessageBox.Show("Inscripcion registrada correctamente");
                     }
                     else
                     {
-                        MessageBox.Show("Error al registrar curso");
+                        MessageBox.Show("Error al registrar inscripcion");
                     }
 
                 }
@@ -80,11 +80,11 @@ namespace Proyecto_PAVI.Interfaces
                     bool res = AD_Inscripcion.ModificarInscripcion(est.Id_curso, est.Id_usuario, est.Puntuacion, est.Observaciones);
                     if (res)
                     {
-                        MessageBox.Show("Curso modificado correctamente");
+                        MessageBox.Show("Inscripcion modificada correctamente");
                     }
                     else
                     {
-                        MessageBox.Show("Error al modificar curso");
+                        MessageBox.Show("Error al modificar inscripcion");
                     }
 
 

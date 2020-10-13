@@ -13,13 +13,14 @@ namespace Proyecto_PAVI.Entidades
         private DateTime fecha; //fecha actividad
         private int id_inscripto; //id de Usuario inscripto
         private int id_curso; //id del curso
-        private int id_responsable; //usuario actual
+        private string responsable; //usuario actual
 
         public int Id_historial { get => id_historial; set => id_historial = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public int Id_responsable { get => id_responsable; set => id_responsable = value; }
+
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public int Id_inscripto { get => id_inscripto; set => id_inscripto = value; }
         public int Id_curso { get => id_curso; set => id_curso = value; }
+        public string Responsable { get => responsable; set => responsable = value; }
     }
 }
