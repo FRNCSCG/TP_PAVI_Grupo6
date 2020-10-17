@@ -55,5 +55,11 @@ namespace Proyecto_PAVI.Interfaces
             Inscripciones pantIncripciiones = new Inscripciones();
             pantIncripciiones.Show();
         }
+
+        private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepInscripciones pantRepIns = new RepInscripciones();
+            pantRepIns.ShowDialog();
+        }
     }
 }
