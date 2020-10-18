@@ -48,11 +48,11 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtIdCurso = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tituloAbmCurso = new System.Windows.Forms.Label();
+            this.cbIdCursos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -237,13 +237,6 @@
             this.lblId.TabIndex = 21;
             this.lblId.Text = "Id de curso";
             // 
-            // txtIdCurso
-            // 
-            this.txtIdCurso.Location = new System.Drawing.Point(98, 83);
-            this.txtIdCurso.Name = "txtIdCurso";
-            this.txtIdCurso.Size = new System.Drawing.Size(282, 20);
-            this.txtIdCurso.TabIndex = 20;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SlateBlue;
@@ -285,11 +278,20 @@
             this.tituloAbmCurso.TabIndex = 39;
             this.tituloAbmCurso.Text = "ABM Cursos";
             // 
+            // cbIdCursos
+            // 
+            this.cbIdCursos.FormattingEnabled = true;
+            this.cbIdCursos.Location = new System.Drawing.Point(98, 83);
+            this.cbIdCursos.Name = "cbIdCursos";
+            this.cbIdCursos.Size = new System.Drawing.Size(282, 21);
+            this.cbIdCursos.TabIndex = 40;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 543);
+            this.Controls.Add(this.cbIdCursos);
             this.Controls.Add(this.tituloAbmCurso);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -308,7 +310,6 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.txtIdCurso);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Cursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -339,7 +340,6 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtIdCurso;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -348,5 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFechaVigencia;
+        private System.Windows.Forms.ComboBox cbIdCursos;
     }
 }

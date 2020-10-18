@@ -81,8 +81,7 @@ namespace Proyecto_PAVI.AccesoDatos
                 cn.Close();
             }
         }
-
-       
+      
         public static Curso RecuperarCurso(int id)
         {
             Curso c = new Curso();

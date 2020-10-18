@@ -88,7 +88,7 @@ namespace Proyecto_PAVI.AccesoDatos
 
         }
 
-        public static DataTable obtenerListadoReporte()
+        public static DataTable obtenerListadoReporte(DateTime fechaInicio, DateTime fechaFin,int curso, int inscripto, int responsable)
         {
 
             string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
@@ -96,10 +96,15 @@ namespace Proyecto_PAVI.AccesoDatos
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "EXEC ReporteInscripciones ";
+                string consulta = "EXEC ReporteInscripciones @fecha_inicio,@fecha_fin,@curso ,@inscripto,@responsable ";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@fecha_inicio", fechaInicio );
+                cmd.Parameters.AddWithValue("@fecha_fin", fechaFin);
+                cmd.Parameters.AddWithValue("@curso", curso );
+                cmd.Parameters.AddWithValue("@inscripto", inscripto );
+                cmd.Parameters.AddWithValue("@responsable", responsable);
                 cmd.CommandText = consulta;
 
                 cn.Open();
