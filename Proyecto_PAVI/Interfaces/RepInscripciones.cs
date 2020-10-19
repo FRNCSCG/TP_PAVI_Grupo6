@@ -15,6 +15,8 @@ namespace Proyecto_PAVI.Interfaces
 {
     public partial class RepInscripciones : Form
     {
+
+        
         public RepInscripciones()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Proyecto_PAVI.Interfaces
             CargarComboCurso();
             CargarComboInscripto();
             CargarComboResponable();
+            verificarCampos(cbCursos, cbInscriptos, cbResponsables);
             lblCantidadRegistros.Text = "";
             DataTable tabla = new DataTable();
             tabla = AD_HistorialInscripcion.obtenerListadoReporte(DateTime.Parse("01/01/1900"), DateTime.Parse("1/01/2100"), -1,-1 ,-1 );
@@ -39,6 +42,7 @@ namespace Proyecto_PAVI.Interfaces
             reportesIns.LocalReport.DataSources.Clear();
             reportesIns.LocalReport.DataSources.Add(ds);
             reportesIns.LocalReport.Refresh();
+            lblCantidad.Text = "Cantidad de registros:" + tabla.Rows.Count;
 
 
         }
@@ -115,13 +119,50 @@ namespace Proyecto_PAVI.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
+            verificarCampos(cbCursos, cbInscriptos, cbResponsables);
+            
             DataTable tabla = new DataTable();
-
             tabla = AD_HistorialInscripcion.obtenerListadoReporte(fechaInicio.Value,fechaFin.Value, (int)cbCursos.SelectedValue, (int)cbInscriptos.SelectedValue, (int)cbResponsables.SelectedValue);
             ReportDataSource ds = new ReportDataSource("reporteInscripciones", tabla);
             this.reportesIns.LocalReport.DataSources.Clear();
             this.reportesIns.LocalReport.DataSources.Add(ds);
             this.reportesIns.RefreshReport();
+            lblCantidad.Text= "Cantidad de registros:" + tabla.Rows.Count;
         }
+
+        private void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+
+            verificarCampos(cbCursos, cbInscriptos, cbResponsables);
+            DataTable tabla = new DataTable();
+            
+            tabla = AD_HistorialInscripcion.obtenerListadoReporte(DateTime.Parse("01/01/1900"), DateTime.Parse("1/01/2100"), -1, -1, -1);
+            ReportDataSource ds = new ReportDataSource("reporteInscripciones", tabla);
+            this.reportesIns.LocalReport.DataSources.Clear();
+            this.reportesIns.LocalReport.DataSources.Add(ds);
+            this.reportesIns.RefreshReport();
+            lblCantidad.Text = "Cantidad de registros:" + tabla.Rows.Count;
+
+        }
+
+        
+
+        public void verificarCampos(ComboBox combo1, ComboBox combo2, ComboBox combo3)
+        {
+            if (combo1.SelectedValue is null )
+            {
+                combo1.Text  = "Todos";
+               }
+            if (combo2.SelectedValue is null)
+            {
+                combo2.Text = "Todos";
+            }
+            if (combo3.SelectedValue is null)
+            {
+                combo3.Text = "Todos";
+            }
+
+        }
+
     }
 }

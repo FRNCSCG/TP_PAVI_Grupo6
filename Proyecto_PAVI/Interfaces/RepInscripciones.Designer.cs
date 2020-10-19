@@ -40,8 +40,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnVisualizar = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblCantidadRegistros = new System.Windows.Forms.Label();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,15 +155,15 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Curso:";
             // 
-            // btnVisualizar
+            // btnFiltrar
             // 
-            this.btnVisualizar.Location = new System.Drawing.Point(191, 85);
-            this.btnVisualizar.Name = "btnVisualizar";
-            this.btnVisualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnVisualizar.TabIndex = 12;
-            this.btnVisualizar.Text = "Visualizar";
-            this.btnVisualizar.UseVisualStyleBackColor = true;
-            this.btnVisualizar.Click += new System.EventHandler(this.button1_Click);
+            this.btnFiltrar.Location = new System.Drawing.Point(191, 85);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(101, 23);
+            this.btnFiltrar.TabIndex = 12;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblCantidadRegistros
             // 
@@ -171,13 +173,34 @@
             this.lblCantidadRegistros.Size = new System.Drawing.Size(0, 13);
             this.lblCantidadRegistros.TabIndex = 13;
             // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Location = new System.Drawing.Point(313, 85);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(101, 23);
+            this.btnMostrarTodos.TabIndex = 14;
+            this.btnMostrarTodos.Text = "Mostrar todos";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(456, 90);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(59, 13);
+            this.lblCantidad.TabIndex = 15;
+            this.lblCantidad.Text = "lblCantidad";
+            // 
             // RepInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.lblCantidadRegistros);
-            this.Controls.Add(this.btnVisualizar);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cbCursos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbResponsables);
@@ -210,7 +233,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbCursos;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnVisualizar;
+        private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Label lblCantidadRegistros;
+        private System.Windows.Forms.Button btnMostrarTodos;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }
