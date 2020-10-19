@@ -87,6 +87,7 @@
             this.txtContraseña.Size = new System.Drawing.Size(124, 24);
             this.txtContraseña.TabIndex = 2;
             this.txtContraseña.UseSystemPasswordChar = true;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // lblPassword
             // 

@@ -61,5 +61,11 @@ namespace Proyecto_PAVI.Interfaces
             RepInscripciones pantRepIns = new RepInscripciones();
             pantRepIns.ShowDialog();
         }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            Login pantLogin = new Login();
+            pantLogin.ShowDialog();
+        }
     }
 }

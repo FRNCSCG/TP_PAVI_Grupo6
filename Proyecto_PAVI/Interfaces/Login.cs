@@ -55,15 +55,26 @@ namespace Proyecto_PAVI.Interfaces
                 if (var)
                 {
                     this.Hide();
-                    MenuPrincipal pantMenuPrincipal = new MenuPrincipal();
-                    pantMenuPrincipal.Show();
-
                 }
                 else
                 {                    
                     MessageBox.Show("Usuario y/o contraseña ingresada incorrecto");                    
                 }
             }
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            Usuario usuario = cargarUsuario(txtUsuario, txtContraseña);
+            usuarioActual = usuario.User;
+
+            bool var = AD_Usuario.validar_usuario(usuario.User, usuario.Contraseña);
+            if (var)
+            {
+            this.Hide();
+            }
+                
+            
         }
     }
 }
