@@ -67,5 +67,10 @@ namespace Proyecto_PAVI.Interfaces
             Login pantLogin = new Login();
             pantLogin.ShowDialog();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
