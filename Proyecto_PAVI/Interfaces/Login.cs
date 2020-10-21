@@ -14,20 +14,22 @@ namespace Proyecto_PAVI.Interfaces
 {
     public partial class Login : Form
     {
-
-        
+                
         public Login()
         {
             InitializeComponent();
+            
         }
 
         Usuario usuario = new Usuario();
 
+        public static bool ban = false;
         public static string usuarioActual;
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        public  void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+            Application.Exit();
         }
 
         
@@ -55,6 +57,7 @@ namespace Proyecto_PAVI.Interfaces
                 if (var)
                 {
                     this.Hide();
+                    ban = true;
                 }
                 else
                 {                    

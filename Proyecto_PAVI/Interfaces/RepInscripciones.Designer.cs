@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportesIns = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.databaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database = new Proyecto_PAVI.Database();
             this.fechaInicio = new System.Windows.Forms.DateTimePicker();
             this.fechaFin = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,18 +47,22 @@
             this.lblCantidadRegistros = new System.Windows.Forms.Label();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
+            this.repIns = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // reportesIns
+            // databaseBindingSource
             // 
-            this.reportesIns.LocalReport.ReportEmbeddedResource = "Proyecto_PAVI.Reportes.ListadoDeInscripciones.rdlc";
-            this.reportesIns.Location = new System.Drawing.Point(12, 127);
-            this.reportesIns.Name = "reportesIns";
-            this.reportesIns.ServerReport.BearerToken = null;
-            this.reportesIns.Size = new System.Drawing.Size(776, 311);
-            this.reportesIns.TabIndex = 0;
-            this.reportesIns.Load += new System.EventHandler(this.reportViewer1_Load);
+            this.databaseBindingSource.DataSource = this.database;
+            this.databaseBindingSource.Position = 0;
+            // 
+            // database
+            // 
+            this.database.DataSetName = "Database";
+            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fechaInicio
             // 
@@ -159,7 +166,7 @@
             // 
             this.btnFiltrar.Location = new System.Drawing.Point(191, 85);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(101, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(101, 27);
             this.btnFiltrar.TabIndex = 12;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -177,7 +184,7 @@
             // 
             this.btnMostrarTodos.Location = new System.Drawing.Point(313, 85);
             this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(101, 23);
+            this.btnMostrarTodos.Size = new System.Drawing.Size(101, 27);
             this.btnMostrarTodos.TabIndex = 14;
             this.btnMostrarTodos.Text = "Mostrar todos";
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
@@ -192,11 +199,36 @@
             this.lblCantidad.TabIndex = 15;
             this.lblCantidad.Text = "lblCantidad";
             // 
+            // repIns
+            // 
+            reportDataSource1.Name = "listadoInscripciones";
+            reportDataSource1.Value = this.databaseBindingSource;
+            this.repIns.LocalReport.DataSources.Add(reportDataSource1);
+            this.repIns.LocalReport.ReportEmbeddedResource = "Proyecto_PAVI.Reportes.listadoInscripciones.rdlc";
+            this.repIns.Location = new System.Drawing.Point(12, 147);
+            this.repIns.Name = "repIns";
+            this.repIns.ServerReport.BearerToken = null;
+            this.repIns.Size = new System.Drawing.Size(776, 259);
+            this.repIns.TabIndex = 16;
+            this.repIns.Load += new System.EventHandler(this.reportViewer1_Load_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(687, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 26);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // RepInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.repIns);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.lblCantidadRegistros);
@@ -208,10 +240,11 @@
             this.Controls.Add(this.cbInscriptos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.reportesIns);
             this.Name = "RepInscripciones";
             this.Text = "Reportes de inscripciones";
             this.Load += new System.EventHandler(this.RepInscripciones_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.databaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -220,8 +253,6 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportesIns;
         private System.Windows.Forms.DateTimePicker fechaInicio;
         private System.Windows.Forms.DateTimePicker fechaFin;
         private System.Windows.Forms.Label label1;
@@ -237,5 +268,9 @@
         private System.Windows.Forms.Label lblCantidadRegistros;
         private System.Windows.Forms.Button btnMostrarTodos;
         private System.Windows.Forms.Label lblCantidad;
+        private Microsoft.Reporting.WinForms.ReportViewer repIns;
+        private System.Windows.Forms.BindingSource databaseBindingSource;
+        private Database database;
+        private System.Windows.Forms.Button button1;
     }
 }

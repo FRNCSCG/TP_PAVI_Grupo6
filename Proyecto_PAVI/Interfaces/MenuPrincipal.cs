@@ -13,6 +13,7 @@ namespace Proyecto_PAVI.Interfaces
 {
     public partial class MenuPrincipal : Form
     {
+        
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -64,13 +65,38 @@ namespace Proyecto_PAVI.Interfaces
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            Login pantLogin = new Login();
-            pantLogin.ShowDialog();
+            if (Login.ban==false)                
+            {
+                Login pantLogin = new Login();
+                pantLogin.ShowDialog();
+                Login.ban = true;
+                
+                lblBienvenido.Text="Bienvenido " + Login.usuarioActual + "!";
+
+            }      
+
         }
+
+      
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RepAvanceCurso pantAvanceCurso = new RepAvanceCurso();
+            pantAvanceCurso.ShowDialog();
         }
+
+        private void usuariosPorCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepUsuariosXCurso pantUsuariosCursos = new RepUsuariosXCurso();
+            pantUsuariosCursos.ShowDialog();
+        }
+
+        private void perfilesDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepPerfilesUsuario pantPerfilesUsuario = new RepPerfilesUsuario();
+            pantPerfilesUsuario.ShowDialog();
+        }
+
+
     }
 }

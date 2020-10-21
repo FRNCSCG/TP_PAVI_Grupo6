@@ -72,11 +72,12 @@
     <Compile Include="AccesoDatos\AD_HistorialInscripcion.cs" />
     <Compile Include="AccesoDatos\AD_Inscripcion.cs" />
     <Compile Include="AccesoDatos\AD_Objetivo.cs" />
+    <Compile Include="AccesoDatos\AD_Perfil.cs" />
     <Compile Include="AccesoDatos\AD_Usuario.cs" />
-    <Compile Include="DatabaseDataSet.Designer.cs">
+    <Compile Include="Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+      <DependentUpon>Database.xsd</DependentUpon>
     </Compile>
     <Compile Include="Entidades\AvanceCurso.cs" />
     <Compile Include="Entidades\Categoria.cs" />
@@ -127,11 +128,29 @@
     <Compile Include="Interfaces\Objetivos.Designer.cs">
       <DependentUpon>Objetivos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\RepAvanceCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepAvanceCurso.Designer.cs">
+      <DependentUpon>RepAvanceCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\RepInscripciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\RepInscripciones.Designer.cs">
       <DependentUpon>RepInscripciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\RepPerfilesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepPerfilesUsuario.Designer.cs">
+      <DependentUpon>RepPerfilesUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\RepUsuariosXCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepUsuariosXCurso.Designer.cs">
+      <DependentUpon>RepUsuariosXCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,8 +175,17 @@
     <EmbeddedResource Include="Interfaces\Objetivos.resx">
       <DependentUpon>Objetivos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepAvanceCurso.resx">
+      <DependentUpon>RepAvanceCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\RepInscripciones.resx">
       <DependentUpon>RepInscripciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepPerfilesUsuario.resx">
+      <DependentUpon>RepPerfilesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepUsuariosXCurso.resx">
+      <DependentUpon>RepUsuariosXCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,17 +197,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\ListadoDeInscripciones.rdlc" />
-    <None Include="DatabaseDataSet.xsc">
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    <EmbeddedResource Include="Reportes\listadoInscripciones.rdlc" />
+    <EmbeddedResource Include="Reportes\listadoAvances.rdlc" />
+    <EmbeddedResource Include="Reportes\listadoUsuariosXCurso.rdlc" />
+    <EmbeddedResource Include="Reportes\reportePerfilesUsuario.rdlc" />
+    <None Include="Database.xsc">
+      <DependentUpon>Database.xsd</DependentUpon>
     </None>
-    <None Include="DatabaseDataSet.xsd">
+    <None Include="Database.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DatabaseDataSet.xss">
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    <None Include="Database.xss">
+      <DependentUpon>Database.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

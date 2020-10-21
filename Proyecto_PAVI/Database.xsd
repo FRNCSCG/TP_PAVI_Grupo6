@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DatabaseDataSet" targetNamespace="http://tempuri.org/DatabaseDataSet.xsd" xmlns:mstns="http://tempuri.org/DatabaseDataSet.xsd" xmlns="http://tempuri.org/DatabaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Database" targetNamespace="http://tempuri.org/Database.xsd" xmlns:mstns="http://tempuri.org/Database.xsd" xmlns="http://tempuri.org/Database.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Proyecto_PAVI.Properties.Settings.GlobalReference.Default.DatabaseConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="basepavConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="basepavConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Proyecto_PAVI.Properties.Settings.GlobalReference.Default.basepavConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CategoriasTableAdapter" GeneratorDataComponentClassName="CategoriasTableAdapter" Name="Categorias" UserDataComponentName="CategoriasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.Categorias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.Categorias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Categorias] WHERE (([id_categoria] = @Original_id_categoria) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)))</CommandText>
@@ -73,7 +73,7 @@ SELECT id_categoria, nombre, descripcion, borrado FROM Categorias WHERE (id_cate
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CursosTableAdapter" GeneratorDataComponentClassName="CursosTableAdapter" Name="Cursos" UserDataComponentName="CursosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.Cursos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.Cursos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Cursos] WHERE (([id_curso] = @Original_id_curso) AND ((@IsNull_nombre = 1 AND [nombre] IS NULL) OR ([nombre] = @Original_nombre)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fecha_vigencia = 1 AND [fecha_vigencia] IS NULL) OR ([fecha_vigencia] = @Original_fecha_vigencia)) AND ((@IsNull_id_categoria = 1 AND [id_categoria] IS NULL) OR ([id_categoria] = @Original_id_categoria)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)))</CommandText>
@@ -151,7 +151,7 @@ SELECT id_curso, nombre, descripcion, fecha_vigencia, id_categoria, borrado FROM
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HistorialInscripcionesTableAdapter" GeneratorDataComponentClassName="HistorialInscripcionesTableAdapter" Name="HistorialInscripciones" UserDataComponentName="HistorialInscripcionesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.HistorialInscripciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.HistorialInscripciones" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[HistorialInscripciones] WHERE (([id_historial] = @Original_id_historial) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_id_inscripto = 1 AND [id_inscripto] IS NULL) OR ([id_inscripto] = @Original_id_inscripto)) AND ((@IsNull_id_curso = 1 AND [id_curso] IS NULL) OR ([id_curso] = @Original_id_curso)) AND ((@IsNull_responsable = 1 AND [responsable] IS NULL) OR ([responsable] = @Original_responsable)))</CommandText>
@@ -210,7 +210,7 @@ SELECT id_historial, descripcion, fecha, id_inscripto, id_curso, responsable FRO
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_curso" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_curso" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_responsable" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="responsable" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_responsable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="responsable" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id_historial" ColumnName="id_historial" DataSourceName="[Database].dbo.HistorialInscripciones" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_historial" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_historial" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id_historial" ColumnName="id_historial" DataSourceName="basepav.dbo.HistorialInscripciones" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_historial" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_historial" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -228,7 +228,7 @@ SELECT id_historial, descripcion, fecha, id_inscripto, id_curso, responsable FRO
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ObjetivosTableAdapter" GeneratorDataComponentClassName="ObjetivosTableAdapter" Name="Objetivos" UserDataComponentName="ObjetivosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.Objetivos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.Objetivos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Objetivos] WHERE (([id_objetivo] = @Original_id_objetivo) AND ((@IsNull_nombre_corto = 1 AND [nombre_corto] IS NULL) OR ([nombre_corto] = @Original_nombre_corto)) AND ((@IsNull_nombre_largo = 1 AND [nombre_largo] IS NULL) OR ([nombre_largo] = @Original_nombre_largo)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)))</CommandText>
@@ -292,7 +292,7 @@ SELECT id_objetivo, nombre_corto, nombre_largo, borrado FROM Objetivos WHERE (id
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ObjetivosCursosTableAdapter" GeneratorDataComponentClassName="ObjetivosCursosTableAdapter" Name="ObjetivosCursos" UserDataComponentName="ObjetivosCursosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.ObjetivosCursos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.ObjetivosCursos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[ObjetivosCursos] WHERE (([id_objetivo] = @Original_id_objetivo) AND ([id_curso] = @Original_id_curso) AND ((@IsNull_puntos = 1 AND [puntos] IS NULL) OR ([puntos] = @Original_puntos)) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)))</CommandText>
@@ -354,7 +354,7 @@ SELECT id_objetivo, id_curso, puntos, borrado FROM ObjetivosCursos WHERE (id_cur
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PerfilesTableAdapter" GeneratorDataComponentClassName="PerfilesTableAdapter" Name="Perfiles" UserDataComponentName="PerfilesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.Perfiles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.Perfiles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Perfiles] WHERE (([id_perfil] = @Original_id_perfil) AND ([nombre] = @Original_nombre) AND ([borrado] = @Original_borrado))</CommandText>
@@ -391,7 +391,7 @@ SELECT id_perfil, nombre, borrado FROM Perfiles WHERE (id_perfil = @id_perfil)</
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_perfil" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_perfil" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_borrado" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="borrado" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id_perfil" ColumnName="id_perfil" DataSourceName="[Database].dbo.Perfiles" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_perfil" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_perfil" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id_perfil" ColumnName="id_perfil" DataSourceName="basepav.dbo.Perfiles" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_perfil" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_perfil" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -406,7 +406,7 @@ SELECT id_perfil, nombre, borrado FROM Perfiles WHERE (id_perfil = @id_perfil)</
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosTableAdapter" GeneratorDataComponentClassName="UsuariosTableAdapter" Name="Usuarios" UserDataComponentName="UsuariosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Usuarios] WHERE (([id_usuario] = @Original_id_usuario) AND ([id_perfil] = @Original_id_perfil) AND ([usuario] = @Original_usuario) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([estado] = @Original_estado) AND ((@IsNull_borrado = 1 AND [borrado] IS NULL) OR ([borrado] = @Original_borrado)))</CommandText>
@@ -461,7 +461,7 @@ SELECT id_usuario, id_perfil, usuario, password, email, estado, borrado FROM Usu
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_borrado" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="borrado" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_borrado" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="borrado" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id_usuario" ColumnName="id_usuario" DataSourceName="[Database].dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id_usuario" ColumnName="id_usuario" DataSourceName="basepav.dbo.Usuarios" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -480,7 +480,7 @@ SELECT id_usuario, id_perfil, usuario, password, email, estado, borrado FROM Usu
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosCursoTableAdapter" GeneratorDataComponentClassName="UsuariosCursoTableAdapter" Name="UsuariosCurso" UserDataComponentName="UsuariosCursoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.UsuariosCurso" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.UsuariosCurso" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[UsuariosCurso] WHERE (([id_usuario] = @Original_id_usuario) AND ([id_curso] = @Original_id_curso) AND ((@IsNull_puntuacion = 1 AND [puntuacion] IS NULL) OR ([puntuacion] = @Original_puntuacion)) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)) AND ((@IsNull_fecha_inicio = 1 AND [fecha_inicio] IS NULL) OR ([fecha_inicio] = @Original_fecha_inicio)) AND ((@IsNull_fecha_fin = 1 AND [fecha_fin] IS NULL) OR ([fecha_fin] = @Original_fecha_fin)))</CommandText>
@@ -556,7 +556,7 @@ SELECT id_usuario, id_curso, puntuacion, observaciones, fecha_inicio, fecha_fin 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosCursoAvanceTableAdapter" GeneratorDataComponentClassName="UsuariosCursoAvanceTableAdapter" Name="UsuariosCursoAvance" UserDataComponentName="UsuariosCursoAvanceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.UsuariosCursoAvance" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.UsuariosCursoAvance" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[UsuariosCursoAvance] WHERE (([id_usuario] = @Original_id_usuario) AND ([id_curso] = @Original_id_curso) AND ([inicio] = @Original_inicio) AND ((@IsNull_fin = 1 AND [fin] IS NULL) OR ([fin] = @Original_fin)) AND ((@IsNull_porc_avance = 1 AND [porc_avance] IS NULL) OR ([porc_avance] = @Original_porc_avance)))</CommandText>
@@ -621,14 +621,43 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReporteAvancesTableAdapter" GeneratorDataComponentClassName="ReporteAvancesTableAdapter" Name="ReporteAvances" UserDataComponentName="ReporteAvancesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.ReporteAvances" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ReporteAvances</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@curso" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@inscripto" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="inicio" DataSetColumn="inicio" />
+              <Mapping SourceColumn="fin" DataSetColumn="fin" />
+              <Mapping SourceColumn="porc_avance" DataSetColumn="porc_avance" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReporteInscripcionesTableAdapter" GeneratorDataComponentClassName="ReporteInscripcionesTableAdapter" Name="ReporteInscripciones" UserDataComponentName="ReporteInscripcionesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="[Database].dbo.ReporteInscripciones" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.ReporteInscripciones" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ReporteInscripciones</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@inicio" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@fin" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@curso" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@inscripto" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@responsable" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -644,15 +673,61 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReporteUsuariosXCursoTableAdapter" GeneratorDataComponentClassName="ReporteUsuariosXCursoTableAdapter" Name="ReporteUsuariosXCurso" UserDataComponentName="ReporteUsuariosXCursoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectName="basepav.dbo.ReporteUsuariosXCurso" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ReporteUsuariosXCurso</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@inicio" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@fin" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@curso" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@inscripto" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Usuario" DataSetColumn="Usuario" />
+              <Mapping SourceColumn="Curso" DataSetColumn="Curso" />
+              <Mapping SourceColumn="Puntuacion" DataSetColumn="Puntuacion" />
+              <Mapping SourceColumn="Observaciones" DataSetColumn="Observaciones" />
+              <Mapping SourceColumn="Inicio" DataSetColumn="Inicio" />
+              <Mapping SourceColumn="Fin" DataSetColumn="Fin" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PerfilesUsuariosTableAdapter" GeneratorDataComponentClassName="PerfilesUsuariosTableAdapter" Name="PerfilesUsuarios" UserDataComponentName="PerfilesUsuariosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="basepavConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Perfiles.nombre, Usuarios.usuario
+FROM            Perfiles INNER JOIN
+                         Usuarios ON Perfiles.id_perfil = Usuarios.id_perfil</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseDataSet" msprop:Generator_UserDSName="DatabaseDataSet">
+  <xs:element name="Database" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Database" msprop:Generator_UserDSName="Database">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Categorias" msprop:Generator_TableClassName="CategoriasDataTable" msprop:Generator_TableVarName="tableCategorias" msprop:Generator_TablePropName="Categorias" msprop:Generator_RowDeletingName="CategoriasRowDeleting" msprop:Generator_RowChangingName="CategoriasRowChanging" msprop:Generator_RowEvHandlerName="CategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriasRowDeleted" msprop:Generator_UserTableName="Categorias" msprop:Generator_RowChangedName="CategoriasRowChanged" msprop:Generator_RowEvArgName="CategoriasRowChangeEvent" msprop:Generator_RowClassName="CategoriasRow">
+        <xs:element name="Categorias" msprop:Generator_TableClassName="CategoriasDataTable" msprop:Generator_TableVarName="tableCategorias" msprop:Generator_RowChangedName="CategoriasRowChanged" msprop:Generator_TablePropName="Categorias" msprop:Generator_RowDeletingName="CategoriasRowDeleting" msprop:Generator_RowChangingName="CategoriasRowChanging" msprop:Generator_RowEvHandlerName="CategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriasRowDeleted" msprop:Generator_RowClassName="CategoriasRow" msprop:Generator_UserTableName="Categorias" msprop:Generator_RowEvArgName="CategoriasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_UserColumnName="id_categoria" type="xs:int" />
@@ -674,7 +749,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cursos" msprop:Generator_TableClassName="CursosDataTable" msprop:Generator_TableVarName="tableCursos" msprop:Generator_TablePropName="Cursos" msprop:Generator_RowDeletingName="CursosRowDeleting" msprop:Generator_RowChangingName="CursosRowChanging" msprop:Generator_RowEvHandlerName="CursosRowChangeEventHandler" msprop:Generator_RowDeletedName="CursosRowDeleted" msprop:Generator_UserTableName="Cursos" msprop:Generator_RowChangedName="CursosRowChanged" msprop:Generator_RowEvArgName="CursosRowChangeEvent" msprop:Generator_RowClassName="CursosRow">
+        <xs:element name="Cursos" msprop:Generator_TableClassName="CursosDataTable" msprop:Generator_TableVarName="tableCursos" msprop:Generator_RowChangedName="CursosRowChanged" msprop:Generator_TablePropName="Cursos" msprop:Generator_RowDeletingName="CursosRowDeleting" msprop:Generator_RowChangingName="CursosRowChanging" msprop:Generator_RowEvHandlerName="CursosRowChangeEventHandler" msprop:Generator_RowDeletedName="CursosRowDeleted" msprop:Generator_RowClassName="CursosRow" msprop:Generator_UserTableName="Cursos" msprop:Generator_RowEvArgName="CursosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_curso" msprop:Generator_ColumnVarNameInTable="columnid_curso" msprop:Generator_ColumnPropNameInRow="id_curso" msprop:Generator_ColumnPropNameInTable="id_cursoColumn" msprop:Generator_UserColumnName="id_curso" type="xs:int" />
@@ -698,7 +773,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HistorialInscripciones" msprop:Generator_TableClassName="HistorialInscripcionesDataTable" msprop:Generator_TableVarName="tableHistorialInscripciones" msprop:Generator_TablePropName="HistorialInscripciones" msprop:Generator_RowDeletingName="HistorialInscripcionesRowDeleting" msprop:Generator_RowChangingName="HistorialInscripcionesRowChanging" msprop:Generator_RowEvHandlerName="HistorialInscripcionesRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialInscripcionesRowDeleted" msprop:Generator_UserTableName="HistorialInscripciones" msprop:Generator_RowChangedName="HistorialInscripcionesRowChanged" msprop:Generator_RowEvArgName="HistorialInscripcionesRowChangeEvent" msprop:Generator_RowClassName="HistorialInscripcionesRow">
+        <xs:element name="HistorialInscripciones" msprop:Generator_TableClassName="HistorialInscripcionesDataTable" msprop:Generator_TableVarName="tableHistorialInscripciones" msprop:Generator_RowChangedName="HistorialInscripcionesRowChanged" msprop:Generator_TablePropName="HistorialInscripciones" msprop:Generator_RowDeletingName="HistorialInscripcionesRowDeleting" msprop:Generator_RowChangingName="HistorialInscripcionesRowChanging" msprop:Generator_RowEvHandlerName="HistorialInscripcionesRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialInscripcionesRowDeleted" msprop:Generator_RowClassName="HistorialInscripcionesRow" msprop:Generator_UserTableName="HistorialInscripciones" msprop:Generator_RowEvArgName="HistorialInscripcionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_historial" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_historial" msprop:Generator_ColumnPropNameInRow="id_historial" msprop:Generator_ColumnPropNameInTable="id_historialColumn" msprop:Generator_UserColumnName="id_historial" type="xs:int" />
@@ -722,7 +797,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Objetivos" msprop:Generator_TableClassName="ObjetivosDataTable" msprop:Generator_TableVarName="tableObjetivos" msprop:Generator_TablePropName="Objetivos" msprop:Generator_RowDeletingName="ObjetivosRowDeleting" msprop:Generator_RowChangingName="ObjetivosRowChanging" msprop:Generator_RowEvHandlerName="ObjetivosRowChangeEventHandler" msprop:Generator_RowDeletedName="ObjetivosRowDeleted" msprop:Generator_UserTableName="Objetivos" msprop:Generator_RowChangedName="ObjetivosRowChanged" msprop:Generator_RowEvArgName="ObjetivosRowChangeEvent" msprop:Generator_RowClassName="ObjetivosRow">
+        <xs:element name="Objetivos" msprop:Generator_TableClassName="ObjetivosDataTable" msprop:Generator_TableVarName="tableObjetivos" msprop:Generator_RowChangedName="ObjetivosRowChanged" msprop:Generator_TablePropName="Objetivos" msprop:Generator_RowDeletingName="ObjetivosRowDeleting" msprop:Generator_RowChangingName="ObjetivosRowChanging" msprop:Generator_RowEvHandlerName="ObjetivosRowChangeEventHandler" msprop:Generator_RowDeletedName="ObjetivosRowDeleted" msprop:Generator_RowClassName="ObjetivosRow" msprop:Generator_UserTableName="Objetivos" msprop:Generator_RowEvArgName="ObjetivosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_objetivo" msprop:Generator_ColumnVarNameInTable="columnid_objetivo" msprop:Generator_ColumnPropNameInRow="id_objetivo" msprop:Generator_ColumnPropNameInTable="id_objetivoColumn" msprop:Generator_UserColumnName="id_objetivo" type="xs:int" />
@@ -744,7 +819,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ObjetivosCursos" msprop:Generator_TableClassName="ObjetivosCursosDataTable" msprop:Generator_TableVarName="tableObjetivosCursos" msprop:Generator_TablePropName="ObjetivosCursos" msprop:Generator_RowDeletingName="ObjetivosCursosRowDeleting" msprop:Generator_RowChangingName="ObjetivosCursosRowChanging" msprop:Generator_RowEvHandlerName="ObjetivosCursosRowChangeEventHandler" msprop:Generator_RowDeletedName="ObjetivosCursosRowDeleted" msprop:Generator_UserTableName="ObjetivosCursos" msprop:Generator_RowChangedName="ObjetivosCursosRowChanged" msprop:Generator_RowEvArgName="ObjetivosCursosRowChangeEvent" msprop:Generator_RowClassName="ObjetivosCursosRow">
+        <xs:element name="ObjetivosCursos" msprop:Generator_TableClassName="ObjetivosCursosDataTable" msprop:Generator_TableVarName="tableObjetivosCursos" msprop:Generator_RowChangedName="ObjetivosCursosRowChanged" msprop:Generator_TablePropName="ObjetivosCursos" msprop:Generator_RowDeletingName="ObjetivosCursosRowDeleting" msprop:Generator_RowChangingName="ObjetivosCursosRowChanging" msprop:Generator_RowEvHandlerName="ObjetivosCursosRowChangeEventHandler" msprop:Generator_RowDeletedName="ObjetivosCursosRowDeleted" msprop:Generator_RowClassName="ObjetivosCursosRow" msprop:Generator_UserTableName="ObjetivosCursos" msprop:Generator_RowEvArgName="ObjetivosCursosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_objetivo" msprop:Generator_ColumnVarNameInTable="columnid_objetivo" msprop:Generator_ColumnPropNameInRow="id_objetivo" msprop:Generator_ColumnPropNameInTable="id_objetivoColumn" msprop:Generator_UserColumnName="id_objetivo" type="xs:int" />
@@ -754,7 +829,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Perfiles" msprop:Generator_TableClassName="PerfilesDataTable" msprop:Generator_TableVarName="tablePerfiles" msprop:Generator_TablePropName="Perfiles" msprop:Generator_RowDeletingName="PerfilesRowDeleting" msprop:Generator_RowChangingName="PerfilesRowChanging" msprop:Generator_RowEvHandlerName="PerfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="PerfilesRowDeleted" msprop:Generator_UserTableName="Perfiles" msprop:Generator_RowChangedName="PerfilesRowChanged" msprop:Generator_RowEvArgName="PerfilesRowChangeEvent" msprop:Generator_RowClassName="PerfilesRow">
+        <xs:element name="Perfiles" msprop:Generator_TableClassName="PerfilesDataTable" msprop:Generator_TableVarName="tablePerfiles" msprop:Generator_RowChangedName="PerfilesRowChanged" msprop:Generator_TablePropName="Perfiles" msprop:Generator_RowDeletingName="PerfilesRowDeleting" msprop:Generator_RowChangingName="PerfilesRowChanging" msprop:Generator_RowEvHandlerName="PerfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="PerfilesRowDeleted" msprop:Generator_RowClassName="PerfilesRow" msprop:Generator_UserTableName="Perfiles" msprop:Generator_RowEvArgName="PerfilesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_perfil" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_perfil" msprop:Generator_ColumnPropNameInRow="id_perfil" msprop:Generator_ColumnPropNameInTable="id_perfilColumn" msprop:Generator_UserColumnName="id_perfil" type="xs:int" />
@@ -769,7 +844,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_RowClassName="UsuariosRow">
+        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_usuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:int" />
@@ -806,7 +881,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UsuariosCurso" msprop:Generator_TableClassName="UsuariosCursoDataTable" msprop:Generator_TableVarName="tableUsuariosCurso" msprop:Generator_TablePropName="UsuariosCurso" msprop:Generator_RowDeletingName="UsuariosCursoRowDeleting" msprop:Generator_RowChangingName="UsuariosCursoRowChanging" msprop:Generator_RowEvHandlerName="UsuariosCursoRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosCursoRowDeleted" msprop:Generator_UserTableName="UsuariosCurso" msprop:Generator_RowChangedName="UsuariosCursoRowChanged" msprop:Generator_RowEvArgName="UsuariosCursoRowChangeEvent" msprop:Generator_RowClassName="UsuariosCursoRow">
+        <xs:element name="UsuariosCurso" msprop:Generator_TableClassName="UsuariosCursoDataTable" msprop:Generator_TableVarName="tableUsuariosCurso" msprop:Generator_RowChangedName="UsuariosCursoRowChanged" msprop:Generator_TablePropName="UsuariosCurso" msprop:Generator_RowDeletingName="UsuariosCursoRowDeleting" msprop:Generator_RowChangingName="UsuariosCursoRowChanging" msprop:Generator_RowEvHandlerName="UsuariosCursoRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosCursoRowDeleted" msprop:Generator_RowClassName="UsuariosCursoRow" msprop:Generator_UserTableName="UsuariosCurso" msprop:Generator_RowEvArgName="UsuariosCursoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:int" />
@@ -824,7 +899,7 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UsuariosCursoAvance" msprop:Generator_TableClassName="UsuariosCursoAvanceDataTable" msprop:Generator_TableVarName="tableUsuariosCursoAvance" msprop:Generator_TablePropName="UsuariosCursoAvance" msprop:Generator_RowDeletingName="UsuariosCursoAvanceRowDeleting" msprop:Generator_RowChangingName="UsuariosCursoAvanceRowChanging" msprop:Generator_RowEvHandlerName="UsuariosCursoAvanceRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosCursoAvanceRowDeleted" msprop:Generator_UserTableName="UsuariosCursoAvance" msprop:Generator_RowChangedName="UsuariosCursoAvanceRowChanged" msprop:Generator_RowEvArgName="UsuariosCursoAvanceRowChangeEvent" msprop:Generator_RowClassName="UsuariosCursoAvanceRow">
+        <xs:element name="UsuariosCursoAvance" msprop:Generator_TableClassName="UsuariosCursoAvanceDataTable" msprop:Generator_TableVarName="tableUsuariosCursoAvance" msprop:Generator_RowChangedName="UsuariosCursoAvanceRowChanged" msprop:Generator_TablePropName="UsuariosCursoAvance" msprop:Generator_RowDeletingName="UsuariosCursoAvanceRowDeleting" msprop:Generator_RowChangingName="UsuariosCursoAvanceRowChanging" msprop:Generator_RowEvHandlerName="UsuariosCursoAvanceRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosCursoAvanceRowDeleted" msprop:Generator_RowClassName="UsuariosCursoAvanceRow" msprop:Generator_UserTableName="UsuariosCursoAvance" msprop:Generator_RowEvArgName="UsuariosCursoAvanceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:int" />
@@ -835,7 +910,30 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReporteInscripciones" msprop:Generator_TableClassName="ReporteInscripcionesDataTable" msprop:Generator_TableVarName="tableReporteInscripciones" msprop:Generator_TablePropName="ReporteInscripciones" msprop:Generator_RowDeletingName="ReporteInscripcionesRowDeleting" msprop:Generator_RowChangingName="ReporteInscripcionesRowChanging" msprop:Generator_RowEvHandlerName="ReporteInscripcionesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteInscripcionesRowDeleted" msprop:Generator_UserTableName="ReporteInscripciones" msprop:Generator_RowChangedName="ReporteInscripcionesRowChanged" msprop:Generator_RowEvArgName="ReporteInscripcionesRowChangeEvent" msprop:Generator_RowClassName="ReporteInscripcionesRow">
+        <xs:element name="ReporteAvances" msprop:Generator_TableClassName="ReporteAvancesDataTable" msprop:Generator_TableVarName="tableReporteAvances" msprop:Generator_RowChangedName="ReporteAvancesRowChanged" msprop:Generator_TablePropName="ReporteAvances" msprop:Generator_RowDeletingName="ReporteAvancesRowDeleting" msprop:Generator_RowChangingName="ReporteAvancesRowChanging" msprop:Generator_RowEvHandlerName="ReporteAvancesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteAvancesRowDeleted" msprop:Generator_RowClassName="ReporteAvancesRow" msprop:Generator_UserTableName="ReporteAvances" msprop:Generator_RowEvArgName="ReporteAvancesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inicio" msprop:Generator_ColumnVarNameInTable="columninicio" msprop:Generator_ColumnPropNameInRow="inicio" msprop:Generator_ColumnPropNameInTable="inicioColumn" msprop:Generator_UserColumnName="inicio" type="xs:dateTime" />
+              <xs:element name="fin" msprop:Generator_ColumnVarNameInTable="columnfin" msprop:Generator_ColumnPropNameInRow="fin" msprop:Generator_ColumnPropNameInTable="finColumn" msprop:Generator_UserColumnName="fin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="porc_avance" msprop:Generator_ColumnVarNameInTable="columnporc_avance" msprop:Generator_ColumnPropNameInRow="porc_avance" msprop:Generator_ColumnPropNameInTable="porc_avanceColumn" msprop:Generator_UserColumnName="porc_avance" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReporteInscripciones" msprop:Generator_TableClassName="ReporteInscripcionesDataTable" msprop:Generator_TableVarName="tableReporteInscripciones" msprop:Generator_RowChangedName="ReporteInscripcionesRowChanged" msprop:Generator_TablePropName="ReporteInscripciones" msprop:Generator_RowDeletingName="ReporteInscripcionesRowDeleting" msprop:Generator_RowChangingName="ReporteInscripcionesRowChanging" msprop:Generator_RowEvHandlerName="ReporteInscripcionesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteInscripcionesRowDeleted" msprop:Generator_RowClassName="ReporteInscripcionesRow" msprop:Generator_UserTableName="ReporteInscripciones" msprop:Generator_RowEvArgName="ReporteInscripcionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -862,6 +960,56 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Funcionario" msprop:Generator_ColumnVarNameInTable="columnFuncionario" msprop:Generator_ColumnPropNameInRow="Funcionario" msprop:Generator_ColumnPropNameInTable="FuncionarioColumn" msprop:Generator_UserColumnName="Funcionario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReporteUsuariosXCurso" msprop:Generator_TableClassName="ReporteUsuariosXCursoDataTable" msprop:Generator_TableVarName="tableReporteUsuariosXCurso" msprop:Generator_RowChangedName="ReporteUsuariosXCursoRowChanged" msprop:Generator_TablePropName="ReporteUsuariosXCurso" msprop:Generator_RowDeletingName="ReporteUsuariosXCursoRowDeleting" msprop:Generator_RowChangingName="ReporteUsuariosXCursoRowChanging" msprop:Generator_RowEvHandlerName="ReporteUsuariosXCursoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteUsuariosXCursoRowDeleted" msprop:Generator_RowClassName="ReporteUsuariosXCursoRow" msprop:Generator_UserTableName="ReporteUsuariosXCurso" msprop:Generator_RowEvArgName="ReporteUsuariosXCursoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Curso" msprop:Generator_ColumnVarNameInTable="columnCurso" msprop:Generator_ColumnPropNameInRow="Curso" msprop:Generator_ColumnPropNameInTable="CursoColumn" msprop:Generator_UserColumnName="Curso" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Puntuacion" msprop:Generator_ColumnVarNameInTable="columnPuntuacion" msprop:Generator_ColumnPropNameInRow="Puntuacion" msprop:Generator_ColumnPropNameInTable="PuntuacionColumn" msprop:Generator_UserColumnName="Puntuacion" type="xs:int" minOccurs="0" />
+              <xs:element name="Observaciones" msprop:Generator_ColumnVarNameInTable="columnObservaciones" msprop:Generator_ColumnPropNameInRow="Observaciones" msprop:Generator_ColumnPropNameInTable="ObservacionesColumn" msprop:Generator_UserColumnName="Observaciones" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inicio" msprop:Generator_ColumnVarNameInTable="columnInicio" msprop:Generator_ColumnPropNameInRow="Inicio" msprop:Generator_ColumnPropNameInTable="InicioColumn" msprop:Generator_UserColumnName="Inicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Fin" msprop:Generator_ColumnVarNameInTable="columnFin" msprop:Generator_ColumnPropNameInRow="Fin" msprop:Generator_ColumnPropNameInTable="FinColumn" msprop:Generator_UserColumnName="Fin" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PerfilesUsuarios" msprop:Generator_TableClassName="PerfilesUsuariosDataTable" msprop:Generator_TableVarName="tablePerfilesUsuarios" msprop:Generator_TablePropName="PerfilesUsuarios" msprop:Generator_RowDeletingName="PerfilesUsuariosRowDeleting" msprop:Generator_RowChangingName="PerfilesUsuariosRowChanging" msprop:Generator_RowEvHandlerName="PerfilesUsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="PerfilesUsuariosRowDeleted" msprop:Generator_UserTableName="PerfilesUsuarios" msprop:Generator_RowChangedName="PerfilesUsuariosRowChanged" msprop:Generator_RowEvArgName="PerfilesUsuariosRowChangeEvent" msprop:Generator_RowClassName="PerfilesUsuariosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -920,15 +1068,15 @@ SELECT id_usuario, id_curso, inicio, fin, porc_avance FROM UsuariosCursoAvance W
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Cursos_Categorias" msdata:parent="Categorias" msdata:child="Cursos" msdata:parentkey="id_categoria" msdata:childkey="id_categoria" msprop:Generator_UserChildTable="Cursos" msprop:Generator_ChildPropName="GetCursosRows" msprop:Generator_UserRelationName="FK_Cursos_Categorias" msprop:Generator_ParentPropName="CategoriasRow" msprop:Generator_RelationVarName="relationFK_Cursos_Categorias" msprop:Generator_UserParentTable="Categorias" />
-      <msdata:Relationship name="FK_HistorialInscripciones_Cursos" msdata:parent="Cursos" msdata:child="HistorialInscripciones" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="HistorialInscripciones" msprop:Generator_ChildPropName="GetHistorialInscripcionesRows" msprop:Generator_UserRelationName="FK_HistorialInscripciones_Cursos" msprop:Generator_ParentPropName="CursosRow" msprop:Generator_RelationVarName="relationFK_HistorialInscripciones_Cursos" msprop:Generator_UserParentTable="Cursos" />
-      <msdata:Relationship name="FK_HistorialInscripciones_Usuarios" msdata:parent="Usuarios" msdata:child="HistorialInscripciones" msdata:parentkey="id_usuario" msdata:childkey="id_inscripto" msprop:Generator_UserChildTable="HistorialInscripciones" msprop:Generator_ChildPropName="GetHistorialInscripcionesRows" msprop:Generator_UserRelationName="FK_HistorialInscripciones_Usuarios" msprop:Generator_RelationVarName="relationFK_HistorialInscripciones_Usuarios" msprop:Generator_UserParentTable="Usuarios" msprop:Generator_ParentPropName="UsuariosRow" />
-      <msdata:Relationship name="FK_ObjetivosCursos_Cursos" msdata:parent="Cursos" msdata:child="ObjetivosCursos" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="ObjetivosCursos" msprop:Generator_ChildPropName="GetObjetivosCursosRows" msprop:Generator_UserRelationName="FK_ObjetivosCursos_Cursos" msprop:Generator_ParentPropName="CursosRow" msprop:Generator_RelationVarName="relationFK_ObjetivosCursos_Cursos" msprop:Generator_UserParentTable="Cursos" />
-      <msdata:Relationship name="FK_ObjetivosCursos_Objetivos" msdata:parent="Objetivos" msdata:child="ObjetivosCursos" msdata:parentkey="id_objetivo" msdata:childkey="id_objetivo" msprop:Generator_UserChildTable="ObjetivosCursos" msprop:Generator_ChildPropName="GetObjetivosCursosRows" msprop:Generator_UserRelationName="FK_ObjetivosCursos_Objetivos" msprop:Generator_ParentPropName="ObjetivosRow" msprop:Generator_RelationVarName="relationFK_ObjetivosCursos_Objetivos" msprop:Generator_UserParentTable="Objetivos" />
-      <msdata:Relationship name="FK_Usuarios_Perfiles" msdata:parent="Perfiles" msdata:child="Usuarios" msdata:parentkey="id_perfil" msdata:childkey="id_perfil" msprop:Generator_UserChildTable="Usuarios" msprop:Generator_ChildPropName="GetUsuariosRows" msprop:Generator_UserRelationName="FK_Usuarios_Perfiles" msprop:Generator_ParentPropName="PerfilesRow" msprop:Generator_RelationVarName="relationFK_Usuarios_Perfiles" msprop:Generator_UserParentTable="Perfiles" />
-      <msdata:Relationship name="FK_UsuariosCurso_Cursos" msdata:parent="Cursos" msdata:child="UsuariosCurso" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="UsuariosCurso" msprop:Generator_ChildPropName="GetUsuariosCursoRows" msprop:Generator_UserRelationName="FK_UsuariosCurso_Cursos" msprop:Generator_ParentPropName="CursosRow" msprop:Generator_RelationVarName="relationFK_UsuariosCurso_Cursos" msprop:Generator_UserParentTable="Cursos" />
-      <msdata:Relationship name="FK_UsuariosCurso_Usuarios" msdata:parent="Usuarios" msdata:child="UsuariosCurso" msdata:parentkey="id_usuario" msdata:childkey="id_usuario" msprop:Generator_UserChildTable="UsuariosCurso" msprop:Generator_ChildPropName="GetUsuariosCursoRows" msprop:Generator_UserRelationName="FK_UsuariosCurso_Usuarios" msprop:Generator_ParentPropName="UsuariosRow" msprop:Generator_RelationVarName="relationFK_UsuariosCurso_Usuarios" msprop:Generator_UserParentTable="Usuarios" />
-      <msdata:Relationship name="FK_UsuariosCursoAvance_UsuariosCurso" msdata:parent="UsuariosCurso" msdata:child="UsuariosCursoAvance" msdata:parentkey="id_usuario id_curso" msdata:childkey="id_usuario id_curso" msprop:Generator_UserChildTable="UsuariosCursoAvance" msprop:Generator_ChildPropName="GetUsuariosCursoAvanceRows" msprop:Generator_UserRelationName="FK_UsuariosCursoAvance_UsuariosCurso" msprop:Generator_ParentPropName="UsuariosCursoRowParent" msprop:Generator_RelationVarName="relationFK_UsuariosCursoAvance_UsuariosCurso" msprop:Generator_UserParentTable="UsuariosCurso" />
+      <msdata:Relationship name="FK_Cursos_Categorias" msdata:parent="Categorias" msdata:child="Cursos" msdata:parentkey="id_categoria" msdata:childkey="id_categoria" msprop:Generator_UserChildTable="Cursos" msprop:Generator_ChildPropName="GetCursosRows" msprop:Generator_UserRelationName="FK_Cursos_Categorias" msprop:Generator_RelationVarName="relationFK_Cursos_Categorias" msprop:Generator_UserParentTable="Categorias" msprop:Generator_ParentPropName="CategoriasRow" />
+      <msdata:Relationship name="FK_HistorialInscripciones_Cursos" msdata:parent="Cursos" msdata:child="HistorialInscripciones" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="HistorialInscripciones" msprop:Generator_ChildPropName="GetHistorialInscripcionesRows" msprop:Generator_UserRelationName="FK_HistorialInscripciones_Cursos" msprop:Generator_RelationVarName="relationFK_HistorialInscripciones_Cursos" msprop:Generator_UserParentTable="Cursos" msprop:Generator_ParentPropName="CursosRow" />
+      <msdata:Relationship name="FK_HistorialInscripciones_Usuarios" msdata:parent="Usuarios" msdata:child="HistorialInscripciones" msdata:parentkey="id_usuario" msdata:childkey="id_inscripto" msprop:Generator_UserChildTable="HistorialInscripciones" msprop:Generator_ChildPropName="GetHistorialInscripcionesRows" msprop:Generator_UserRelationName="FK_HistorialInscripciones_Usuarios" msprop:Generator_ParentPropName="UsuariosRow" msprop:Generator_RelationVarName="relationFK_HistorialInscripciones_Usuarios" msprop:Generator_UserParentTable="Usuarios" />
+      <msdata:Relationship name="FK_ObjetivosCursos_Cursos" msdata:parent="Cursos" msdata:child="ObjetivosCursos" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="ObjetivosCursos" msprop:Generator_ChildPropName="GetObjetivosCursosRows" msprop:Generator_UserRelationName="FK_ObjetivosCursos_Cursos" msprop:Generator_RelationVarName="relationFK_ObjetivosCursos_Cursos" msprop:Generator_UserParentTable="Cursos" msprop:Generator_ParentPropName="CursosRow" />
+      <msdata:Relationship name="FK_ObjetivosCursos_Objetivos" msdata:parent="Objetivos" msdata:child="ObjetivosCursos" msdata:parentkey="id_objetivo" msdata:childkey="id_objetivo" msprop:Generator_UserChildTable="ObjetivosCursos" msprop:Generator_ChildPropName="GetObjetivosCursosRows" msprop:Generator_UserRelationName="FK_ObjetivosCursos_Objetivos" msprop:Generator_RelationVarName="relationFK_ObjetivosCursos_Objetivos" msprop:Generator_UserParentTable="Objetivos" msprop:Generator_ParentPropName="ObjetivosRow" />
+      <msdata:Relationship name="FK_Usuarios_Perfiles" msdata:parent="Perfiles" msdata:child="Usuarios" msdata:parentkey="id_perfil" msdata:childkey="id_perfil" msprop:Generator_UserChildTable="Usuarios" msprop:Generator_ChildPropName="GetUsuariosRows" msprop:Generator_UserRelationName="FK_Usuarios_Perfiles" msprop:Generator_RelationVarName="relationFK_Usuarios_Perfiles" msprop:Generator_UserParentTable="Perfiles" msprop:Generator_ParentPropName="PerfilesRow" />
+      <msdata:Relationship name="FK_UsuariosCurso_Cursos" msdata:parent="Cursos" msdata:child="UsuariosCurso" msdata:parentkey="id_curso" msdata:childkey="id_curso" msprop:Generator_UserChildTable="UsuariosCurso" msprop:Generator_ChildPropName="GetUsuariosCursoRows" msprop:Generator_UserRelationName="FK_UsuariosCurso_Cursos" msprop:Generator_RelationVarName="relationFK_UsuariosCurso_Cursos" msprop:Generator_UserParentTable="Cursos" msprop:Generator_ParentPropName="CursosRow" />
+      <msdata:Relationship name="FK_UsuariosCurso_Usuarios" msdata:parent="Usuarios" msdata:child="UsuariosCurso" msdata:parentkey="id_usuario" msdata:childkey="id_usuario" msprop:Generator_UserChildTable="UsuariosCurso" msprop:Generator_ChildPropName="GetUsuariosCursoRows" msprop:Generator_UserRelationName="FK_UsuariosCurso_Usuarios" msprop:Generator_RelationVarName="relationFK_UsuariosCurso_Usuarios" msprop:Generator_UserParentTable="Usuarios" msprop:Generator_ParentPropName="UsuariosRow" />
+      <msdata:Relationship name="FK_UsuariosCursoAvance_UsuariosCurso" msdata:parent="UsuariosCurso" msdata:child="UsuariosCursoAvance" msdata:parentkey="id_usuario id_curso" msdata:childkey="id_usuario id_curso" msprop:Generator_UserChildTable="UsuariosCursoAvance" msprop:Generator_ChildPropName="GetUsuariosCursoAvanceRows" msprop:Generator_UserRelationName="FK_UsuariosCursoAvance_UsuariosCurso" msprop:Generator_RelationVarName="relationFK_UsuariosCursoAvance_UsuariosCurso" msprop:Generator_UserParentTable="UsuariosCurso" msprop:Generator_ParentPropName="UsuariosCursoRowParent" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

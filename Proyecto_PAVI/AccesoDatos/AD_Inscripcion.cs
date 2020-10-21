@@ -277,5 +277,52 @@ namespace Proyecto_PAVI.AccesoDatos
             }
             return resultado;
         }
+
+
+
+        public static DataTable obtenerListadoReporte(DateTime fechaInicio, DateTime fechaFin, int curso, int usuario)
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                
+                
+                string consulta = "EXEC ReporteUsuariosXCurso @fecha_inicio,@fecha_fin,@curso ,@inscripto ";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@fecha_inicio", fechaInicio);
+                cmd.Parameters.AddWithValue("@fecha_fin", fechaFin);
+                cmd.Parameters.AddWithValue("@curso", curso);
+                cmd.Parameters.AddWithValue("@inscripto", usuario);
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+
+
+
     }
 }
