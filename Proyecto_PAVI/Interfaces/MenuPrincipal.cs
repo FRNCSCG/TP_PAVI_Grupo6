@@ -97,6 +97,16 @@ namespace Proyecto_PAVI.Interfaces
             pantPerfilesUsuario.ShowDialog();
         }
 
+        private void cantidadUsuariosPorCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepEstUsuariosCursos pantCantUsuarios = new RepEstUsuariosCursos();
+            pantCantUsuarios.ShowDialog();
+        }
 
+        private void puntuacionUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepEstPuntuacionUsuarios pantPuntUsuarios = new RepEstPuntuacionUsuarios();
+            pantPuntUsuarios.ShowDialog();
+        }
     }
 }

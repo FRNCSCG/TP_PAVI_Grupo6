@@ -96,6 +96,89 @@ namespace Proyecto_PAVI.AccesoBD
                 cn.Close();
 
             }
+        
         }
+
+        public static DataTable obtenerListadoReporte(DateTime desde, DateTime hasta)
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "Select uc.Puntuacion as Puntuacion, COUNT(uc.id_usuario) as Cantidad FROM UsuariosCurso UC WHERE UC.fecha_inicio BETWEEN @DESDE AND @HASTA GROUP BY uc.Puntuacion";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@DESDE", desde);
+                cmd.Parameters.AddWithValue("@HASTA", hasta);
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public static DataTable obtenerListadoReporteTodos()
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "Select uc.Puntuacion as Puntuacion, COUNT(uc.id_usuario) as Cantidad FROM UsuariosCurso UC GROUP BY uc.Puntuacion";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+
+
+
+
+
     }
 }

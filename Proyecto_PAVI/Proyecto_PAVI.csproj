@@ -74,6 +74,9 @@
     <Compile Include="AccesoDatos\AD_Objetivo.cs" />
     <Compile Include="AccesoDatos\AD_Perfil.cs" />
     <Compile Include="AccesoDatos\AD_Usuario.cs" />
+    <Compile Include="Database.cs">
+      <DependentUpon>Database.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,11 +143,23 @@
     <Compile Include="Interfaces\RepInscripciones.Designer.cs">
       <DependentUpon>RepInscripciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\RepEstPuntuacionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepEstPuntuacionUsuarios.Designer.cs">
+      <DependentUpon>RepEstPuntuacionUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\RepPerfilesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\RepPerfilesUsuario.Designer.cs">
       <DependentUpon>RepPerfilesUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\RepEstUsuariosCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepEstUsuariosCursos.Designer.cs">
+      <DependentUpon>RepEstUsuariosCursos.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\RepUsuariosXCurso.cs">
       <SubType>Form</SubType>
@@ -181,8 +196,14 @@
     <EmbeddedResource Include="Interfaces\RepInscripciones.resx">
       <DependentUpon>RepInscripciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepEstPuntuacionUsuarios.resx">
+      <DependentUpon>RepEstPuntuacionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\RepPerfilesUsuario.resx">
       <DependentUpon>RepPerfilesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepEstUsuariosCursos.resx">
+      <DependentUpon>RepEstUsuariosCursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\RepUsuariosXCurso.resx">
       <DependentUpon>RepUsuariosXCurso.cs</DependentUpon>
@@ -197,9 +218,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\graficoUsuariosCursos.rdlc" />
     <EmbeddedResource Include="Reportes\listadoInscripciones.rdlc" />
     <EmbeddedResource Include="Reportes\listadoAvances.rdlc" />
     <EmbeddedResource Include="Reportes\listadoUsuariosXCurso.rdlc" />
+    <EmbeddedResource Include="Reportes\graficoPuntuacionUsuarios.rdlc" />
     <EmbeddedResource Include="Reportes\reportePerfilesUsuario.rdlc" />
     <None Include="Database.xsc">
       <DependentUpon>Database.xsd</DependentUpon>

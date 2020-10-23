@@ -228,5 +228,84 @@ namespace Proyecto_PAVI.AccesoDatos
             }
             return resultado;
         }
+
+        public static DataTable obtenerListadoReporte(DateTime desde, DateTime hasta)
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "Select c.Nombre as Nombre, COUNT(uc.id_usuario) as Cantidad FROM UsuariosCurso UC INNER JOIN Cursos c ON UC.id_curso = c.id_curso WHERE UC.fecha_inicio BETWEEN @DESDE AND @HASTA GROUP BY c.Nombre";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@DESDE", desde);
+                cmd.Parameters.AddWithValue("@HASTA", hasta);
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public static DataTable obtenerListadoReporteTodos()
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "Select c.Nombre as Nombre, COUNT(uc.id_usuario) as Cantidad FROM UsuariosCurso UC INNER JOIN Cursos c ON uc.id_curso = c.id_curso GROUP BY c.Nombre";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+
+
     }
 }
