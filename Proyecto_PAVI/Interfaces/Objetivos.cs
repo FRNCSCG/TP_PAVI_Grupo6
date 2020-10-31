@@ -93,8 +93,6 @@ namespace Proyecto_PAVI.Interfaces
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            MenuPrincipal pantMenuPrincipal = new MenuPrincipal();
-            pantMenuPrincipal.Show();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)

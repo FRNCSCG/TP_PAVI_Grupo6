@@ -21,40 +21,40 @@ namespace Proyecto_PAVI.Interfaces
 
         private void cuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
             Cursos pantCurso = new Cursos();
-            pantCurso.Show();
+            pantCurso.ShowDialog();
 
         }
 
         private void objetivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
             Objetivos pantObjetivo = new Objetivos();
-            pantObjetivo.Show();
+            pantObjetivo.ShowDialog();
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
             Categorias pantCategoria = new Categorias();
-            pantCategoria.Show();
+            pantCategoria.ShowDialog();
         }
 
 
 
         private void historialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
             HistorialInscripciones pantHistorial = new HistorialInscripciones();
-            pantHistorial.Show();
+            pantHistorial.ShowDialog();
         }
 
         private void gestionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
             Inscripciones pantIncripciiones = new Inscripciones();
-            pantIncripciiones.Show();
+            pantIncripciiones.ShowDialog();
         }
 
         private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace Proyecto_PAVI.Interfaces
                 pantLogin.ShowDialog();
                 Login.ban = true;
                 
-                lblBienvenido.Text="Bienvenido " + Login.usuarioActual + "!";
+                lblBienv.Text="Bienvenido " + Login.usuarioActual + "!";
 
             }      
 
@@ -97,16 +97,28 @@ namespace Proyecto_PAVI.Interfaces
             pantPerfilesUsuario.ShowDialog();
         }
 
-        private void cantidadUsuariosPorCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cantidadUsuariosPorCursoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             RepEstUsuariosCursos pantCantUsuarios = new RepEstUsuariosCursos();
             pantCantUsuarios.ShowDialog();
         }
 
-        private void puntuacionUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void puntuacionUsuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             RepEstPuntuacionUsuarios pantPuntUsuarios = new RepEstPuntuacionUsuarios();
             pantPuntUsuarios.ShowDialog();
+        }
+
+        private void cantidadUsuariosPorPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepEstUsuariosPerfiles perfils = new RepEstUsuariosPerfiles();
+            perfils.ShowDialog();
+        }
+
+        private void cantidadActividadesDeInscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepEstActividadesInscripciones activs = new RepEstActividadesInscripciones();
+            activs.ShowDialog();
         }
     }
 }

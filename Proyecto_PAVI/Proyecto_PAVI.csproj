@@ -137,6 +137,18 @@
     <Compile Include="Interfaces\RepAvanceCurso.Designer.cs">
       <DependentUpon>RepAvanceCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\RepEstActividadesInscripciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepEstActividadesInscripciones.Designer.cs">
+      <DependentUpon>RepEstActividadesInscripciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\RepEstUsuariosPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\RepEstUsuariosPerfiles.Designer.cs">
+      <DependentUpon>RepEstUsuariosPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\RepInscripciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +205,12 @@
     <EmbeddedResource Include="Interfaces\RepAvanceCurso.resx">
       <DependentUpon>RepAvanceCurso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepEstActividadesInscripciones.resx">
+      <DependentUpon>RepEstActividadesInscripciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\RepEstUsuariosPerfiles.resx">
+      <DependentUpon>RepEstUsuariosPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\RepInscripciones.resx">
       <DependentUpon>RepInscripciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,7 +236,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\graficoActividadesInscripciones.rdlc" />
     <EmbeddedResource Include="Reportes\graficoUsuariosCursos.rdlc" />
+    <EmbeddedResource Include="Reportes\graficoUsuariosPerfiles.rdlc" />
     <EmbeddedResource Include="Reportes\listadoInscripciones.rdlc" />
     <EmbeddedResource Include="Reportes\listadoAvances.rdlc" />
     <EmbeddedResource Include="Reportes\listadoUsuariosXCurso.rdlc" />
@@ -260,6 +280,7 @@
     <Content Include="Recursos\Icons\nuevo.png" />
     <Content Include="Recursos\Icons\salir.png" />
     <Content Include="Recursos\Icons\telefono-movil.png" />
+    <None Include="Recursos\Icons\usuario.png" />
     <None Include="Resources\backend.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -127,6 +127,81 @@ namespace Proyecto_PAVI.AccesoDatos
             }
         }
 
+        public static DataTable obtenerGrafico(DateTime desde, DateTime hasta)
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "SELECT h.descripcion as Nombre,count(1) as Cantidad FROM HistorialInscripciones h WHERE h.fecha between @DESDE and @HASTA GROUP BY h.descripcion";
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@DESDE", desde);
+                cmd.Parameters.AddWithValue("@HASTA", hasta);
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+        public static DataTable obtenerGraficoTodos()
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "SELECT h.descripcion as Nombre,count(1) as Cantidad FROM HistorialInscripciones h GROUP BY h.descripcion";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_PAVI.Interfaces
 {
-    partial class RepEstUsuariosCursos
+    partial class RepEstActividadesInscripciones
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportCU = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnTodos = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fechaDesde = new System.Windows.Forms.DateTimePicker();
             this.fechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnTodos = new System.Windows.Forms.Button();
+            this.reportAI = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // reportCU
+            // btnTodos
             // 
-            this.reportCU.LocalReport.ReportEmbeddedResource = "Proyecto_PAVI.Reportes.graficoUsuariosCursos.rdlc";
-            this.reportCU.Location = new System.Drawing.Point(12, 106);
-            this.reportCU.Name = "reportCU";
-            this.reportCU.ServerReport.BearerToken = null;
-            this.reportCU.Size = new System.Drawing.Size(776, 332);
-            this.reportCU.TabIndex = 0;
-            this.reportCU.Load += new System.EventHandler(this.reportCU_Load);
+            this.btnTodos.Location = new System.Drawing.Point(310, 65);
+            this.btnTodos.Name = "btnTodos";
+            this.btnTodos.Size = new System.Drawing.Size(101, 27);
+            this.btnTodos.TabIndex = 18;
+            this.btnTodos.Text = "Mostrar Todo";
+            this.btnTodos.UseVisualStyleBackColor = true;
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(192, 65);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(101, 27);
+            this.btnFiltrar.TabIndex = 17;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // groupBox1
             // 
@@ -55,10 +65,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.fechaDesde);
             this.groupBox1.Controls.Add(this.fechaHasta);
-            this.groupBox1.Location = new System.Drawing.Point(12, 2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(162, 85);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Periodo";
             // 
@@ -96,27 +106,17 @@
             this.fechaHasta.Size = new System.Drawing.Size(102, 20);
             this.fechaHasta.TabIndex = 2;
             // 
-            // btnFiltrar
+            // reportAI
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(192, 60);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(101, 27);
-            this.btnFiltrar.TabIndex = 13;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.reportAI.LocalReport.ReportEmbeddedResource = "Proyecto_PAVI.Reportes.graficoActividadesInscripciones.rdlc";
+            this.reportAI.Location = new System.Drawing.Point(12, 111);
+            this.reportAI.Name = "reportAI";
+            this.reportAI.ServerReport.BearerToken = null;
+            this.reportAI.Size = new System.Drawing.Size(776, 332);
+            this.reportAI.TabIndex = 15;
+            this.reportAI.Load += new System.EventHandler(this.reportAI_Load);
             // 
-            // btnTodos
-            // 
-            this.btnTodos.Location = new System.Drawing.Point(310, 60);
-            this.btnTodos.Name = "btnTodos";
-            this.btnTodos.Size = new System.Drawing.Size(101, 27);
-            this.btnTodos.TabIndex = 14;
-            this.btnTodos.Text = "Mostrar Todo";
-            this.btnTodos.UseVisualStyleBackColor = true;
-            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
-            // 
-            // RepEstUsuariosCursos
+            // RepEstActividadesInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,11 +124,11 @@
             this.Controls.Add(this.btnTodos);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.reportCU);
-            this.Name = "RepEstUsuariosCursos";
+            this.Controls.Add(this.reportAI);
+            this.Name = "RepEstActividadesInscripciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RepUsuariosCursos";
-            this.Load += new System.EventHandler(this.RepUsuariosCursos_Load);
+            this.Text = "RepEstActividadesInscripciones";
+            this.Load += new System.EventHandler(this.RepEstActividadesInscripciones_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -137,13 +137,13 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportCU;
+        private System.Windows.Forms.Button btnTodos;
+        private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker fechaDesde;
         private System.Windows.Forms.DateTimePicker fechaHasta;
-        private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Button btnTodos;
+        private Microsoft.Reporting.WinForms.ReportViewer reportAI;
     }
 }

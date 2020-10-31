@@ -136,6 +136,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.reportPU);
             this.Name = "RepEstPuntuacionUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteEstPuntuacionUsuarios";
             this.Load += new System.EventHandler(this.ReporteEstPuntuacionUsuarios_Load);
             this.groupBox1.ResumeLayout(false);

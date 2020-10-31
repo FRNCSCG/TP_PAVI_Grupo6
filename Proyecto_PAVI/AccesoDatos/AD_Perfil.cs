@@ -115,6 +115,53 @@ namespace Proyecto_PAVI.AccesoDatos
             }
         }
 
+
+
+        public static DataTable obtenerGrafico()
+        {
+
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+
+                string consulta = "SELECT P.nombre as Nombre ,count(1) as Cantidad FROM USUARIOS U, PERFILES P WHERE U.id_perfil = P.id_perfil group by P.nombre";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+
+                da.Fill(table);
+                return table;
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
     }
 
 

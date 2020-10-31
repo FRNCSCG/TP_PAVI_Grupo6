@@ -241,6 +241,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Name = "RepInscripciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes de inscripciones";
             this.Load += new System.EventHandler(this.RepInscripciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseBindingSource)).EndInit();

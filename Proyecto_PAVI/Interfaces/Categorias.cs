@@ -138,8 +138,6 @@ namespace Proyecto_PAVI.Interfaces
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            MenuPrincipal pantMenuPrincipal = new MenuPrincipal();
-            pantMenuPrincipal.Show();
         }
 
         private void dgvCategorias_CellClick_1(object sender, DataGridViewCellEventArgs e)
