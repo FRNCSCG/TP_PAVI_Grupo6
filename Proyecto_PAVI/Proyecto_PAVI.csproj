@@ -271,15 +271,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Recursos\Icons\analitica.png" />
     <Content Include="Recursos\Icons\backend.png" />
     <Content Include="Recursos\Icons\borrar.png" />
     <Content Include="Recursos\Icons\cerrar.png" />
     <Content Include="Recursos\Icons\cursos.png" />
     <Content Include="Recursos\Icons\editar.png" />
     <Content Include="Recursos\Icons\guardar.png" />
+    <None Include="Recursos\Icons\lista-de-verificacion.png" />
+    <None Include="Recursos\Icons\historia.png" />
+    <None Include="Recursos\Icons\historia2.png" />
     <Content Include="Recursos\Icons\nuevo.png" />
     <Content Include="Recursos\Icons\salir.png" />
+    <None Include="Recursos\Icons\Software logo.png" />
     <Content Include="Recursos\Icons\telefono-movil.png" />
+    <None Include="Resources\cursos.png" />
     <None Include="Recursos\Icons\usuario.png" />
     <None Include="Resources\backend.png" />
   </ItemGroup>

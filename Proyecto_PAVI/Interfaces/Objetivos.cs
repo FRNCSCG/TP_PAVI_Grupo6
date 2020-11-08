@@ -52,42 +52,47 @@ namespace Proyecto_PAVI.Interfaces
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            Objetivo o = obtenerObjetivo();
-            //SI EL USUARIO QUIERE CREAR UN CURSO
-            if (guardar == 1)
+            if (validarCampos())
             {
+                Objetivo o = obtenerObjetivo();
+                //SI EL USUARIO QUIERE CREAR UN CURSO
+                if (guardar == 1)
+                {
 
-                bool res = AD_Objetivo.RegistrarObjetivo(o.Id_objetivo ,o.Nombre_corto , o.Nombre_largo );
-                if (res)
-                {
-                    MessageBox.Show("objetivo registrado correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al registrar objetivo");
-                }
-                
-            }
-            //SI EL USUARIO DESEA MODIFICAR UN CURSO
-            if (guardar == 2)
-            {
+                    bool res = AD_Objetivo.RegistrarObjetivo(o.Id_objetivo, o.Nombre_corto, o.Nombre_largo);
+                    if (res)
+                    {
+                        MessageBox.Show("objetivo registrado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar objetivo");
+                    }
 
-                bool res = AD_Objetivo.ModificarObjetivo(o.Id_objetivo, o.Nombre_corto, o.Nombre_largo);
-                if (res)
-                {
-                    MessageBox.Show("Objetivo modificado correctamente");
                 }
-                else
+                //SI EL USUARIO DESEA MODIFICAR UN CURSO
+                if (guardar == 2)
                 {
-                    MessageBox.Show("Error al modificar objetivo");
+
+                    bool res = AD_Objetivo.ModificarObjetivo(o.Id_objetivo, o.Nombre_corto, o.Nombre_largo);
+                    if (res)
+                    {
+                        MessageBox.Show("Objetivo modificado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al modificar objetivo");
+                    }
+
                 }
-                
+                LimpiarCampos();
+                CargarGrilla();
+                ban = false;
+                this.Habilitar(false);
+                guardar = 0;
             }
-            LimpiarCampos();
-            CargarGrilla();
-            ban = false;
-            this.Habilitar(false);
-            guardar = 0;
+
+            
         }
             
         private void btnSalir_Click(object sender, EventArgs e)
@@ -193,5 +198,37 @@ namespace Proyecto_PAVI.Interfaces
             txtIdObjetivo .Text = o.Id_objetivo .ToString();
             txtNombreAbrev .Text = o.Nombre_corto ;
         }
+
+        public bool validarCampos()
+        {
+            if (txtNombreLargo.Text == "")
+            {
+                MessageBox.Show("El id está vacío");
+                return false;
+            }
+            if (txtIdObjetivo.Text == "")
+            {
+                MessageBox.Show("El nombre está vacío");
+                return false;
+            }
+            if (txtNombreAbrev.Text == "")
+            {
+                MessageBox.Show("La descripcion está vacia...");
+                return false;
+            }
+
+            return true;
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

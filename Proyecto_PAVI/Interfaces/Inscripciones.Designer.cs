@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inscripciones));
             this.label1 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.dgvInscripcion = new System.Windows.Forms.DataGridView();
             this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(351, 135);
+            this.label1.Location = new System.Drawing.Point(420, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 57;
@@ -71,33 +71,29 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(79, 500);
+            this.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(90)))), ((int)(((byte)(173)))));
+            this.btnGrabar.Location = new System.Drawing.Point(91, 513);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 7;
+            this.btnGrabar.Size = new System.Drawing.Size(83, 31);
+            this.btnGrabar.TabIndex = 61;
             this.btnGrabar.Text = "Guardar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(172, 500);
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(90)))), ((int)(((byte)(173)))));
+            this.btnCancelar.Location = new System.Drawing.Point(193, 513);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Size = new System.Drawing.Size(83, 31);
+            this.btnCancelar.TabIndex = 62;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(645, 500);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 9;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvInscripcion
             // 
@@ -117,8 +113,10 @@
             this.dgvInscripcion.MultiSelect = false;
             this.dgvInscripcion.Name = "dgvInscripcion";
             this.dgvInscripcion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvInscripcion.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInscripcion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInscripcion.Size = new System.Drawing.Size(642, 217);
+            this.dgvInscripcion.Size = new System.Drawing.Size(730, 222);
             this.dgvInscripcion.TabIndex = 49;
             this.dgvInscripcion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripcion_CellClick);
             // 
@@ -164,15 +162,15 @@
             // 
             // Observacion
             // 
+            this.Observacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Observacion.DataPropertyName = "observaciones";
             this.Observacion.HeaderText = "Observacion";
             this.Observacion.Name = "Observacion";
-            this.Observacion.Width = 172;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(5, 179);
+            this.lblFecha.Location = new System.Drawing.Point(6, 178);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(67, 13);
             this.lblFecha.TabIndex = 47;
@@ -189,14 +187,14 @@
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.Location = new System.Drawing.Point(79, 173);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(79, 172);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(211, 20);
             this.dtpFechaInicio.TabIndex = 3;
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(433, 135);
+            this.txtObservacion.Location = new System.Drawing.Point(523, 135);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(285, 101);
@@ -215,9 +213,10 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SlateBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, -1);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(731, 55);
+            this.dataGridView1.Size = new System.Drawing.Size(843, 64);
             this.dataGridView1.TabIndex = 56;
             // 
             // pictureBox1
@@ -235,7 +234,7 @@
             // 
             this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
             this.btnBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBorrar.Location = new System.Drawing.Point(13, 439);
+            this.btnBorrar.Location = new System.Drawing.Point(13, 444);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(50, 50);
             this.btnBorrar.TabIndex = 12;
@@ -272,9 +271,9 @@
             this.tituloAbmCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tituloAbmCurso.Location = new System.Drawing.Point(74, 17);
             this.tituloAbmCurso.Name = "tituloAbmCurso";
-            this.tituloAbmCurso.Size = new System.Drawing.Size(194, 22);
+            this.tituloAbmCurso.Size = new System.Drawing.Size(220, 22);
             this.tituloAbmCurso.TabIndex = 59;
-            this.tituloAbmCurso.Text = "Registrar inscripción";
+            this.tituloAbmCurso.Text = "Gestionar Inscripciones";
             // 
             // cbCurso
             // 
@@ -287,7 +286,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(357, 92);
+            this.label3.Location = new System.Drawing.Point(420, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 63;
@@ -306,7 +305,7 @@
             "8",
             "9",
             "10"});
-            this.cbPuntuacion.Location = new System.Drawing.Point(433, 89);
+            this.cbPuntuacion.Location = new System.Drawing.Point(523, 92);
             this.cbPuntuacion.Name = "cbPuntuacion";
             this.cbPuntuacion.Size = new System.Drawing.Size(57, 21);
             this.cbPuntuacion.TabIndex = 5;
@@ -323,7 +322,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 535);
+            this.ClientSize = new System.Drawing.Size(843, 567);
             this.Controls.Add(this.cbUsuario);
             this.Controls.Add(this.cbPuntuacion);
             this.Controls.Add(this.label3);
@@ -336,7 +335,6 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvInscripcion);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.Usuario);
@@ -344,6 +342,7 @@
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inscripciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inscripcion";
@@ -364,7 +363,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgvInscripcion;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label Usuario;
@@ -376,12 +374,12 @@
         private System.Windows.Forms.ComboBox cbCurso;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbPuntuacion;
+        private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIdCurso;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFechaVigencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fin;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
-        private System.Windows.Forms.ComboBox cbUsuario;
     }
 }

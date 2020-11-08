@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cursos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.grdCursos = new System.Windows.Forms.DataGridView();
             this.clmIdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tituloAbmCurso = new System.Windows.Forms.Label();
-            this.cbIdCursos = new System.Windows.Forms.ComboBox();
+            this.txtIdCurso = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,7 +62,7 @@
             // 
             this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
             this.btnBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBorrar.Location = new System.Drawing.Point(14, 440);
+            this.btnBorrar.Location = new System.Drawing.Point(14, 453);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(50, 50);
             this.btnBorrar.TabIndex = 35;
@@ -93,33 +93,29 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(79, 510);
+            this.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrabar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(90)))), ((int)(((byte)(173)))));
+            this.btnGrabar.Location = new System.Drawing.Point(79, 524);
             this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 32;
+            this.btnGrabar.Size = new System.Drawing.Size(83, 31);
+            this.btnGrabar.TabIndex = 61;
             this.btnGrabar.Text = "Guardar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(172, 510);
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(90)))), ((int)(((byte)(173)))));
+            this.btnCancelar.Location = new System.Drawing.Point(189, 524);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 31;
+            this.btnCancelar.Size = new System.Drawing.Size(83, 31);
+            this.btnCancelar.TabIndex = 62;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(837, 510);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 30;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // grdCursos
             // 
@@ -133,8 +129,10 @@
             this.clmFechaVigencia});
             this.grdCursos.Location = new System.Drawing.Point(79, 273);
             this.grdCursos.Name = "grdCursos";
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.grdCursos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.grdCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdCursos.Size = new System.Drawing.Size(833, 217);
+            this.grdCursos.Size = new System.Drawing.Size(741, 230);
             this.grdCursos.TabIndex = 29;
             this.grdCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCursos_CellClick);
             // 
@@ -176,7 +174,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(11, 225);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 28;
             this.label3.Text = "Categoría";
             // 
@@ -185,7 +183,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Location = new System.Drawing.Point(11, 180);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(81, 13);
+            this.lblFecha.Size = new System.Drawing.Size(84, 13);
             this.lblFecha.TabIndex = 27;
             this.lblFecha.Text = "Fecha Vigencia";
             // 
@@ -194,7 +192,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(11, 132);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(48, 13);
             this.lblNombre.TabIndex = 26;
             this.lblNombre.Text = "Nombre";
             // 
@@ -210,30 +208,30 @@
             // 
             this.dtpFechaVigencia.Location = new System.Drawing.Point(98, 174);
             this.dtpFechaVigencia.Name = "dtpFechaVigencia";
-            this.dtpFechaVigencia.Size = new System.Drawing.Size(282, 20);
+            this.dtpFechaVigencia.Size = new System.Drawing.Size(282, 22);
             this.dtpFechaVigencia.TabIndex = 24;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(530, 102);
+            this.txtDescripcion.Location = new System.Drawing.Point(467, 102);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(382, 141);
+            this.txtDescripcion.Size = new System.Drawing.Size(353, 141);
             this.txtDescripcion.TabIndex = 23;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(98, 129);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(282, 20);
+            this.txtNombre.Size = new System.Drawing.Size(282, 22);
             this.txtNombre.TabIndex = 22;
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(11, 86);
+            this.lblId.Location = new System.Drawing.Point(11, 89);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(60, 13);
+            this.lblId.Size = new System.Drawing.Size(64, 13);
             this.lblId.TabIndex = 21;
             this.lblId.Text = "Id de curso";
             // 
@@ -241,17 +239,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SlateBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 0);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(927, 55);
+            this.dataGridView1.Size = new System.Drawing.Size(843, 64);
             this.dataGridView1.TabIndex = 36;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(527, 86);
+            this.label1.Location = new System.Drawing.Point(464, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 37;
             this.label1.Text = "Descripción";
             // 
@@ -274,24 +273,23 @@
             this.tituloAbmCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tituloAbmCurso.Location = new System.Drawing.Point(75, 18);
             this.tituloAbmCurso.Name = "tituloAbmCurso";
-            this.tituloAbmCurso.Size = new System.Drawing.Size(120, 22);
+            this.tituloAbmCurso.Size = new System.Drawing.Size(166, 22);
             this.tituloAbmCurso.TabIndex = 39;
-            this.tituloAbmCurso.Text = "ABM Cursos";
+            this.tituloAbmCurso.Text = "Gestionar Cursos";
             // 
-            // cbIdCursos
+            // txtIdCurso
             // 
-            this.cbIdCursos.FormattingEnabled = true;
-            this.cbIdCursos.Location = new System.Drawing.Point(98, 83);
-            this.cbIdCursos.Name = "cbIdCursos";
-            this.cbIdCursos.Size = new System.Drawing.Size(282, 21);
-            this.cbIdCursos.TabIndex = 40;
+            this.txtIdCurso.Location = new System.Drawing.Point(98, 86);
+            this.txtIdCurso.Name = "txtIdCurso";
+            this.txtIdCurso.Size = new System.Drawing.Size(282, 22);
+            this.txtIdCurso.TabIndex = 63;
             // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 543);
-            this.Controls.Add(this.cbIdCursos);
+            this.ClientSize = new System.Drawing.Size(843, 567);
+            this.Controls.Add(this.txtIdCurso);
             this.Controls.Add(this.tituloAbmCurso);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -300,7 +298,6 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.grdCursos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFecha);
@@ -311,6 +308,8 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
@@ -330,7 +329,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView grdCursos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblFecha;
@@ -348,6 +346,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFechaVigencia;
-        private System.Windows.Forms.ComboBox cbIdCursos;
+        private System.Windows.Forms.TextBox txtIdCurso;
     }
 }

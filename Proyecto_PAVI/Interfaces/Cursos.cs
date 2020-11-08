@@ -30,7 +30,6 @@ namespace Proyecto_PAVI.Interfaces
         {
             CargarGrilla();
             CargarComboCategoria();
-            CargarComboCurso();
             Habilitar(false);
         }
 
@@ -51,7 +50,7 @@ namespace Proyecto_PAVI.Interfaces
             LimpiarCampos();
             this.btnEditar .Enabled = false;
             this.btnBorrar.Enabled = false;
-            this.cbIdCursos .Focus();
+            this.txtIdCurso.Focus();
         }
 
       
@@ -127,7 +126,7 @@ namespace Proyecto_PAVI.Interfaces
                 Habilitar(true);
                 this.ban = true;
             }
-            this.cbIdCursos .Enabled = false;
+            this.txtIdCurso .Enabled = false;
             this.txtNombre.Focus();
             guardar = 2;
         }
@@ -168,7 +167,7 @@ namespace Proyecto_PAVI.Interfaces
         private Curso obtenerCurso()
         {
             Curso c = new Curso();
-            c.Id_curso = (int)cboCategoria.SelectedValue;
+            c.Id_curso = int.Parse(txtIdCurso.Text);
             c.Nombre = txtNombre.Text.Trim();
             c.Fecha_vigencia = dtpFechaVigencia.Value;
             c.Id_categoria = (int)cboCategoria.SelectedValue;
@@ -180,7 +179,7 @@ namespace Proyecto_PAVI.Interfaces
         private void cargarCampos(Curso c)
         {
             txtDescripcion.Text = c.Descripcion;
-            cbIdCursos.SelectedValue = c.Id_curso;
+            txtIdCurso.Text = c.Id_curso.ToString();
             txtNombre.Text = c.Nombre;
             cboCategoria.SelectedValue = c.Id_categoria;
             dtpFechaVigencia.Value = c.Fecha_vigencia;
@@ -192,7 +191,7 @@ namespace Proyecto_PAVI.Interfaces
             dtpFechaVigencia.Value = DateTime.Today;
             txtDescripcion.Text = "";
             txtNombre.Text = "";
-            cbIdCursos.SelectedIndex = -1;
+            txtIdCurso.Text = "";
             cboCategoria.SelectedIndex = -1;
         }
 
@@ -205,19 +204,11 @@ namespace Proyecto_PAVI.Interfaces
             cboCategoria.SelectedIndex = -1;
         }
 
-        //CARGAR COMBOS CATEGORIA
-        private void CargarComboCurso()
-        {
-            cbIdCursos.DataSource = AD_Curso.obtenerCursos();
-            cbIdCursos.DisplayMember = "nombre";
-            cbIdCursos.ValueMember = "id_curso";
-            cbIdCursos.SelectedIndex = -1;
-        }
 
         //HABILITAR CAMPOS DEPENDE DE SU PARAMETRO BOOLEANO
         private void Habilitar(bool x)
         {
-            cbIdCursos .Enabled = x;
+            txtIdCurso .Enabled = x;
             txtNombre.Enabled = x;
             txtDescripcion.Enabled = x;
             dtpFechaVigencia.Enabled = x;
@@ -239,7 +230,7 @@ namespace Proyecto_PAVI.Interfaces
 
         public bool validarCampos()
         {
-            if (cbIdCursos.SelectedIndex == -1)
+            if (txtIdCurso.Text == "")
             {
                 MessageBox.Show("El id está vacío");
                 return false;
@@ -251,7 +242,7 @@ namespace Proyecto_PAVI.Interfaces
             }
             if (txtDescripcion.Text == "")
             {
-                MessageBox.Show("El email está vacío...");
+                MessageBox.Show("La descripcion está vacia...");
                 return false;
             }
             if (cboCategoria.SelectedIndex == -1)

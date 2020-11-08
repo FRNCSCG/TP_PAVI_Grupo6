@@ -48,7 +48,7 @@ namespace Proyecto_PAVI.Interfaces
                 bool res = AD_Categoria.EliminarCategoria(c.Id_cat );
                 if (res)
                 {
-                    MessageBox.Show("Curso eliminado correctamente");
+                    MessageBox.Show("Categoria eliminada correctamente");
                     LimpiarCampos();
                     CargarGrilla();
                     ban = false;
@@ -57,7 +57,7 @@ namespace Proyecto_PAVI.Interfaces
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar curso");
+                    MessageBox.Show("Error al eliminar Categoria");
                 }
             }
                        
@@ -87,55 +87,65 @@ namespace Proyecto_PAVI.Interfaces
             guardar =2;
         }
 
-        private void btnGrabar_Click(object sender, EventArgs e)
+
+
+        private void btnGrabar_Click_1(object sender, EventArgs e)
         {
-            Categoria c = obtenerCategoria ();
-            //SI EL USUARIO QUIERE CREAR UN CURSO
-            if (guardar==1)
+            if (validarCampos())
             {
+                Categoria c = obtenerCategoria();
+                //SI EL USUARIO QUIERE CREAR UN CURSO
+                if (guardar == 1)
+                {
 
-                bool res = AD_Categoria.RegistrarCategoria (c.Id_cat , c.Nombre, c.Descripcion);
-                if (res)
-                {
-                    MessageBox.Show("Curso registrado correctamente");
+                    bool res = AD_Categoria.RegistrarCategoria(c.Id_cat, c.Nombre, c.Descripcion);
+                    if (res)
+                    {
+                        MessageBox.Show("Categoria registrada correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar Categoria");
+                    }
+
                 }
-                else
+                //SI EL USUARIO DESEA MODIFICAR UN CURSO
+                if (guardar == 2)
                 {
-                    MessageBox.Show("Error al registrar curso");
+
+                    bool res = AD_Categoria.ModificarCategoria(c.Id_cat, c.Nombre, c.Descripcion);
+                    if (res)
+                    {
+                        MessageBox.Show("Categoria modificada correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al modificar categoria");
+                    }
+
+
                 }
-                               
+                LimpiarCampos();
+                CargarGrilla();
+                ban = false;
+                this.Habilitar(false);
+                guardar = 0;
             }
-            //SI EL USUARIO DESEA MODIFICAR UN CURSO
-            if(guardar ==2)
-            {
 
-                bool res = AD_Categoria.ModificarCategoria(c.Id_cat , c.Nombre,c.Descripcion);
-                if (res)
-                {
-                    MessageBox.Show("Categoria modificada correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al modificar categoria");
-                }
-                
 
-            }
-            LimpiarCampos();
-            CargarGrilla();
+
+            
+        }
+
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
             ban = false;
             this.Habilitar(false);
             guardar = 0;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            ban = false;
-            this.Habilitar(false);
-            guardar = 0;
-        }
-           
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -210,5 +220,31 @@ namespace Proyecto_PAVI.Interfaces
             txtIdCategoria.Text = c.Id_cat.ToString();
             txtNombreCategoria.Text = c.Nombre;
         }
+
+
+
+
+        public bool validarCampos()
+        {
+            if (txtIdCategoria.Text == "")
+            {
+                MessageBox.Show("El id está vacío");
+                return false;
+            }
+            if (txtNombreCategoria.Text == "")
+            {
+                MessageBox.Show("El nombre está vacío");
+                return false;
+            }
+            if (txtDescripcionCat.Text == "")
+            {
+                MessageBox.Show("La descripcion está vacia...");
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }
