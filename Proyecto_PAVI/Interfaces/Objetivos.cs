@@ -103,7 +103,7 @@ namespace Proyecto_PAVI.Interfaces
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             Objetivo c = obtenerObjetivo();
-            if (MessageBox.Show("Está seguro de eliminar el curso " + txtNombreLargo .Text + "?",
+            if (MessageBox.Show("Está seguro de eliminar el objetivo " + txtNombreLargo .Text + "?",
                                 "Eliminado",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Error,
@@ -113,7 +113,7 @@ namespace Proyecto_PAVI.Interfaces
                 bool res = AD_Objetivo.EliminarObjetivo(c.Id_objetivo );
                 if (res)
                 {
-                    MessageBox.Show("Curso eliminado correctamente");
+                    MessageBox.Show("Objetivo eliminado correctamente");
                     LimpiarCampos();
                     CargarGrilla();
                     ban = false;

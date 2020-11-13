@@ -173,7 +173,7 @@ namespace Proyecto_PAVI.Interfaces
                     //SI NO SE PUEDO ELIMINAR EL AVANCE
                     //NO ELIMINA LA INSCRIPCION
                     {
-                        MessageBox.Show("Error al eliminar curso");
+                        MessageBox.Show("Error al eliminar Inscripcion");
                     }
                 }
 

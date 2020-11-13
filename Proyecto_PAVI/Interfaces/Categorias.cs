@@ -38,7 +38,7 @@ namespace Proyecto_PAVI.Interfaces
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             Categoria c = obtenerCategoria();
-            if (MessageBox.Show("Está seguro de eliminar el curso " + txtNombreCategoria .Text + "?",
+            if (MessageBox.Show("Está seguro de eliminar la categoria " + txtNombreCategoria .Text + "?",
                                 "Eliminado",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Error,
